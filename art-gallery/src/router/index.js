@@ -21,8 +21,8 @@ const routes = [
     component: CultureView
   },
   {
-    path: '/exhibitions',
-    name: 'exhibitions',
+    path: '/exhibition',
+    name: 'exhibition',
     component: ExhibitionsView
   }
 ]

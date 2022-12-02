@@ -1,15 +1,18 @@
 <template>
-    <div class="culture">
-      This is the culture page.
-    </div>
-  </template>
+  <div class="culture">
+    This is the culture page.
+    <FeaturedArtist  />
+  </div>
+</template>
   
-  <script>
-  export default {
-    name: 'CultureView',
-    components: {
-  
-    }
-  }
-  </script>
+<script>
+import FeaturedArtist from '@/components/FeaturedArtist.vue';
+
+export default {
+  name: 'CultureView',
+  components: {
+  FeaturedArtist
+  },
+}
+</script>
   
