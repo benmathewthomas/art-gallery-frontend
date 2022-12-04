@@ -6,13 +6,13 @@ export async function getExhibitions() {
 }
 
 // Post exhibition to database.
-export function postExhibition(name, description, backdropImageURL) {
+export async function postExhibition(name, description, backdropImageURL) {
   const request = {
     method: "POST",
     headers: { "Content-Type": "application/json"},
     body: JSON.stringify({ name: name, description: description, backdropImageURL: backdropImageURL })
   }
-  fetch('/api/exhibitions', request)
+  await fetch('/api/exhibitions', request)
     .then(response => response.json())
-    .then(data => { return data.id });
+    .then(data => { return data });
 }
