@@ -59,8 +59,9 @@ export default {
             return this.exhibitions.filter(d => {
                 return d.name.toUpperCase().indexOf(this.search.toUpperCase()) != -1;
             })
-        },
+        },  
 
+        // Show the add entry inputs.
         showInputs() {
             if (!this.entryClicked)
                 this.entryClicked = true;
@@ -69,9 +70,10 @@ export default {
         },
 
         // Add entry to database.
-        addEntry() {
-            postExhibition(this.name, this.description, this.backdropImageURL);
-            if (this.exhibitions.id != "undefined")
+        async addEntry() {
+            await postExhibition(this.name, this.description, this.backdropImageURL);
+
+            if (this.exhibitions.name != "undefined")
             {
                 this.$emit('updateData');
             }
