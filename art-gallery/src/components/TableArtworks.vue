@@ -33,6 +33,7 @@
           this.fillTableWithData();
         },
 
+        // Fill table with data from artwork service.
         fillTableWithData() {
             const table = document.getElementById("table1");
 
@@ -70,7 +71,6 @@
                 var highlightRow = function(row) {
                     return function() {
                         row.style = "background-color:#f1f1f1";
-                        
                     };
                 };
                 var removeHighlight = function(row) {
