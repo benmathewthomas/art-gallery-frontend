@@ -1,9 +1,6 @@
 <template>
   <div class="home">
-    <h1>This is the home page.</h1>
-    <p>Test paragraph.</p>
-    <p>Test paragraph.</p>
-    <p>Test paragraph.</p>
+    <HeadingComponent title="Welcome to XYZ Gallery"/>
     <div class="home-banner">
       <img src="@/assets/img/emerging_artists.avif" alt="Emerging Artists Exhibition banner">
     </div>
@@ -11,7 +8,10 @@
 </template>
 
 <script>
+import HeadingComponent from '@/components/HeadingComponent.vue';
+
 export default {
-  name: 'HomeView'
+    name: "HomeView",
+    components: { HeadingComponent }
 }
 </script>
