@@ -9,6 +9,7 @@
                         <th>TITLE</th>
                         <th>DESCRIPTION</th>
                         <th>ARTISTS</th>
+                        <th>MEDIA</th>
                         <th>YEAR</th>
                     </tr>
                 </thead>
@@ -28,7 +29,6 @@
             await getArtworks()
                 .then(data => {
                 this.artworks = data;
-                this.fields = Object.keys(this.artworks[0]);
             });
           this.fillTableWithData();
         },
@@ -51,6 +51,9 @@
 
                 cell = row.insertCell(-1);
                 cell.innerHTML = item.contributingArtists;
+
+                cell = row.insertCell(-1);
+                cell.innerHTML = item.media;
 
                 cell = row.insertCell(-1);
                 cell.innerHTML = item.yearCreated;
