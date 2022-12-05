@@ -1,5 +1,6 @@
 <template v-if="dataLoaded">
   <div class="exhibitions">
+    <HeadingComponent title="EXHIBITIONS"/>
     <TableExhibition :fields="this.fields" :exhibitions="this.exhibitions" v-on:updateData="updateData()"/>
   </div>
 </template>
@@ -7,12 +8,14 @@
 <script>
 import { getExhibitions } from '../services/ExhibitionService'
 import TableExhibition from '../components/TableExhibition.vue';
+import HeadingComponent from '@/components/HeadingComponent.vue';
 
 export default {
   name: 'ExhibitionsView',
   components: {
-    TableExhibition
-  },
+    TableExhibition,
+    HeadingComponent
+},
   data() { 
     return  {
         exhibitions: [],
