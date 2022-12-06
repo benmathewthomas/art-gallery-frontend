@@ -6,11 +6,18 @@ export async function getExhibitions() {
 }
 
 // Post exhibition to database.
-export async function postExhibition(name, description, backdropImageURL) {
+export async function postExhibition(name, description, backgroundImageUrl) {
+  var token = localStorage.getItem('token');
+  console.log(token)
+  token = token.replace(/^"(.*)"$/, '$1');
+  console.log(token)
   const request = {
     method: "POST",
-    headers: { "Content-Type": "application/json"},
-    body: JSON.stringify({ name: name, description: description, backdropImageURL: backdropImageURL })
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    },
+    body: JSON.stringify({ name: name, description: description, backgroundImageUrl: backgroundImageUrl })
   }
   await fetch('/api/exhibitions', request)
     .then(response => response.json())

@@ -21,7 +21,6 @@
                     v-model="login.password"
                     ref="password"
                     placeholder="Enter password"
-                    v-validate="'required'"
                     type="password"
                     class="form-control"
                     name="password"
@@ -51,7 +50,7 @@
 </template>
 
 <script>
-import { Login } from '../services/LoginService'
+import { Login } from '@/services/LoginService'
 
 export default {
   name: 'LoginComponent',
@@ -69,9 +68,10 @@ export default {
         this.$router.push('/register');
     },
     async handleLogin() {
-        console.log("Logging in...")
-        if (this.validateLogin()) {
+        if (this.validateLogin() === true) {
+            console.log("Logging in...")
             await Login(this.login.email, this.login.password);
+            console.log(localStorage.getItem('user'))
         }
     },
     validateLogin() {

@@ -15,3 +15,18 @@ export default {
     components: { HeadingComponent }
 }
 </script>
+
+<style scoped>
+.home-banner {
+    text-align: center;
+}
+.home img{
+    width: 90vw;
+    max-width: 1000px;
+}
+.home, .artworks, .exhibitions, .culture {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 20px;
+    padding-bottom: 50px;
+}
+</style>
