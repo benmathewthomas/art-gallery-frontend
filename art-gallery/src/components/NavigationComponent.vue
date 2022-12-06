@@ -32,6 +32,16 @@
                 </ul>
             </div>
             <div class="nav-tools">
+                <div class="authentication" title="auth">
+                    <div @click="toggleLogin" class="nav-tools-login" title="Login">
+                        <span class="login-nav-button">login</span>
+                    </div>
+                    <div>
+                        <router-link to="/register" class="nav-link">
+                            <span>register</span>
+                        </router-link>
+                    </div>
+                </div>
                 <div class="nav-tools-search" title="Search">
                     <span class="screen-reader-only">Search</span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -72,19 +82,44 @@
                 </li>
             </ul>
         </div>
+        <div class="login-box" v-if="this.showLogin">
+            <LoginComponent @hide-component="hideCallback"/>
+        </div>
     </nav>
 </template>
 
 <script>
+import LoginComponent from '@/components/LoginComponent.vue'
+
 export default {
     data () {
         return {
-            showMenu: false
+            showMenu: false,
+            showLogin: false
         }
     },
+    components: { LoginComponent },
     methods: {
+        toggleLogin () {
+            if (this.showLogin === false) {
+                this.showMenu = false
+                this.showLogin = true
+            }
+            else {
+                this.showLogin = false
+            }
+        },
         toggleMenu () {
-            this.showMenu = !this.showMenu
+            if (this.showMenu === false) {
+                this.showLogin = false
+                this.showMenu = true
+            }
+            else {
+                this.showMenu = false
+            }
+        },
+        hideCallback () {
+            this.showLogin = false
         }
     }
 }

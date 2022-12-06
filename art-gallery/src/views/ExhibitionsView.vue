@@ -16,7 +16,7 @@ export default {
     TableExhibition,
     HeadingComponent
 },
-  data() { 
+  data() {
     return  {
         exhibitions: [],
         dataLoaded: false,

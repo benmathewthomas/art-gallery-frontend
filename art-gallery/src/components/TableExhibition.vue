@@ -12,7 +12,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="item in filterTable()" :key="item">
-                        <img :src="item.backdropImageURL"/>
+                        <img :src="item.backgroundImageUrl"/>
                         <td><h3>{{ item.name }}</h3></td>
                         <td class="description">{{ item.description }}</td>
                     </tr>
@@ -20,14 +20,14 @@
             </table>
             <button v-on:click="showInputs" class="plus-button">+</button>
         </div>
-        
+
         <div class="entry-div" v-if="entryClicked">
             <input type="text" v-model="name" class="table-input" placeholder="Enter name..."/>
             <input type="text" v-model="description" class="table-input" placeholder="Enter description..."/>
-            <input type="text" v-model="backdropImageURL" class="table-input" placeholder="Enter backdropImageURL..."/>
+            <input type="text" v-model="backgroundImageUrl" class="table-input" placeholder="Enter backgroundImageUrl..."/>
             <button v-on:click="addEntry" class="entry-button">Add entry</button>
         </div>
-        
+
     </div>
 </template>
 
@@ -50,7 +50,7 @@ export default {
             entryClicked: false,
             name: "",
             description: "",
-            backdropImageURL: ""
+            backgroundImageUrl: ""
         }
     },
     methods: {
@@ -59,7 +59,7 @@ export default {
             return this.exhibitions.filter(d => {
                 return d.name.toUpperCase().indexOf(this.search.toUpperCase()) != -1;
             })
-        },  
+        },
 
         // Show the add entry inputs.
         showInputs() {
@@ -71,7 +71,7 @@ export default {
 
         // Add entry to database.
         async addEntry() {
-            await postExhibition(this.name, this.description, this.backdropImageURL);
+            await postExhibition(this.name, this.description, this.backgroundImageUrl);
 
             if (this.exhibitions.name != "undefined")
             {

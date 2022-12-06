@@ -3,6 +3,7 @@ import HomeView from '../views/HomeView.vue'
 import ArtworksView from '@/views/ArtworksView'
 import CultureView from '@/views/CultureView'
 import ExhibitionsView from '@/views/ExhibitionsView'
+import RegisterView from '@/views/RegisterView'
 
 const routes = [
   {
@@ -24,6 +25,12 @@ const routes = [
     path: '/exhibition',
     name: 'exhibition',
     component: ExhibitionsView
+  }
+  ,
+  {
+    path: '/register',
+    name: 'register',
+    component: RegisterView
   }
 ]
 
