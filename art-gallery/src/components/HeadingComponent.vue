@@ -1,5 +1,5 @@
 <template>
-    <h1>{{ title }}</h1>
+    <h1 class="heading">{{ title }}</h1>
 </template>
 
 <script>
@@ -14,7 +14,7 @@
 </script>
 
 <style scoped>
-    h1 {
+    .heading {
         margin-top: 50px;
         text-align: center;
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

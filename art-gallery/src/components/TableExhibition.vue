@@ -9,7 +9,7 @@
         </div>
         <input type="text" class="search-input" v-model="search" placeholder="Search..."/>
         <div class="table-div">
-            <table>
+            <table class="table-exh">
                 <thead>
                     <tr>
                         <th> </th>
@@ -19,8 +19,8 @@
                 </thead>
                 <tbody>
                     <tr v-for="item in filterTable()" :key="item">
-                        <img :src="item.backgroundImageUrl"/>
-                        <td><h3>{{ item.name }}</h3></td>
+                        <img :src="item.backgroundImageUrl" class="img-exh"/>
+                        <td><h3 class="h3-title">{{ item.name }}</h3></td>
                         <td class="description">{{ item.description }}</td>
                     </tr>
                 </tbody>
@@ -98,13 +98,13 @@ export default {
         text-align: center;
     }
 
-    table {
+    .table-exh {
         margin-top: 10px;
         width:100%;
         border-spacing: 0 12px;
     }
 
-    table th {
+    .table-exh th {
         color: #343737;
         padding: 20px;
         background-color:#aad6c7;
@@ -112,21 +112,21 @@ export default {
         font-size: 22px;
     }
 
-    table td, th {
+    .table-exh td, th {
         padding: 8px;
     }
 
-    tr {
+    .table-exh tr {
         background-color:#e7e7e7;
         border: 1px;
     }
 
-    tr:hover {
+    .table-exh tr:hover {
         background-color:#f1f1f1;
         border: 1px;
     }
 
-    td {
+    .table-exh td {
         color:#343737;
         padding-top: 20px;
         padding-bottom: 20px;
@@ -194,7 +194,7 @@ export default {
         overflow-x:auto;
     }
 
-    img {
+    .img-exh {
         width: 300px;
         max-height: 200px;
         object-fit: cover;
@@ -205,7 +205,7 @@ export default {
         padding-bottom: 20px;
     }
 
-    h3 {
+    .h3-title {
         font-size: 25px;
         font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }

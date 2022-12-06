@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <img :src="require(`../assets/img/${image}`)"/>
+    <div class="card-div">
+        <img :src="require(`../assets/img/${image}`)" class="card-img"/>
         <h2>{{ this.artistName }}</h2>
         <h3>{{ this.artworkTitle }}</h3>
         <p>{{ this.description }}</p>
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style scoped>
-    div {
+    .card-div {
         width: 70%;
         max-width: 900px;
         margin: auto;
@@ -40,7 +40,7 @@ export default {
         padding: 20px;
     }
 
-    img {
+    .card-img {
         width:90%;
         padding-top: 40px;
     }

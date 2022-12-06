@@ -9,7 +9,7 @@
         </div>
         <input type="text" class="search-input" v-on:keyup="filterTable()" placeholder="Search..."/>
         <div class="table-div">
-            <table class="table-style" id="table1" cellpadding="8px" border="1">
+            <table class="table-art" id="table1" cellpadding="8px" border="1">
                 <thead>
                     <tr>
                         <th> </th>
@@ -138,14 +138,14 @@
         overflow-x:auto;
     }
 
-    table {
+    .table-art {
         margin-left: auto;
         margin-right: auto;
         width: 100%;
         border-collapse: collapse;
     }
 
-    th {
+    .table-art th {
         color:#343737;
         background-color: #aad6c7;
         padding-top: 20px;
