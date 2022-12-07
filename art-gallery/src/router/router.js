@@ -3,9 +3,10 @@ import HomeView from '@/views/HomeView.vue'
 import ArtworksView from '@/views/ArtworksView'
 import CultureView from '@/views/CultureView'
 import ExhibitionsView from '@/views/ExhibitionsView'
-import RegisterView from '@/views/RegisterView'
+import SignUpView from '@/views/SignUpView'
 import AboutView from '@/views/AboutView'
 import ContactView from '@/views/ContactView'
+import LoginView from '@/views/LoginView'
 
 const routes = [
   {
@@ -29,9 +30,9 @@ const routes = [
     component: ExhibitionsView
   },
   {
-    path: '/register',
-    name: 'register',
-    component: RegisterView
+    path: '/signup',
+    name: 'signup',
+    component: SignUpView
   },
   {
     path: '/about',
@@ -39,6 +40,12 @@ const routes = [
     component: AboutView
   },
   {
+    path: '/login',
+    name: 'login',
+    component: LoginView
+  },
+  {
+    // Currently restricted view for auth testing
     path: '/contact',
     name: 'contact',
     component: ContactView

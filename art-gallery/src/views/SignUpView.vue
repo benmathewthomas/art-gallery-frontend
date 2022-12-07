@@ -1,114 +1,126 @@
 <template>
     <div class="container">
-        <HeadingComponent title="Register" />
+        <HeadingComponent title="New Account" />
         <div class="card">
+            <Form name="signup-form" @submit="handleSubmit">
 
-            <Form name="register-form" @submit="handleRegister">
-                <p>Enter your details below to register an account.</p>
+                <p>Enter your details below to register a new account.</p>
                 <hr>
+
                 <label for="firstName"><b>First Name:</b></label>
                 <p class='error-message'><ErrorMessage name="firstName" /></p>
-                <Field ref="firstName" type="text" placeholder="Enter first name" name="firstName" :rules="validateName" />
+                <Field v-model="user.firstName" type="text" placeholder="Enter first name" name="firstName" rules="required|valid-name" />
 
                 <label for="lastName"><b>Last Name:</b></label>
                 <p class='error-message'><ErrorMessage name="lastName" /></p>
-                <Field ref="lastName" type="text" placeholder="Enter last name" name="lastName" :rules="validateName" />
+                <Field v-model="user.lastName" type="text" placeholder="Enter last name" name="lastName" rules="required|valid-name" />
 
                 <label for="email"><b>Email</b></label>
                 <p class='error-message'><ErrorMessage name="email" /></p>
-                <Field ref="email" type="email" placeholder="Enter email" name="email" :rules="validateEmail" />
+                <Field v-model="user.email" type="email" placeholder="Enter email" name="email" rules="required|valid-email" />
 
                 <label for="password"><b>Password:</b></label>
                 <p class="password-prompt">Password must be at least 8 characters and requires 1 of each of the following: uppercase letter, lowercase letter, number.</p>
                 <p class='error-message'><ErrorMessage name="password" /></p>
-                <Field id="password" type="password" placeholder="Enter password" name="password" :rules="validatePwd" />
+                <Field v-model="user.password" type="password" placeholder="Enter password" name="password" id="password" rules="required|valid-password|min:8"/>
 
                 <label for="passwordConfirmation"><b>Confirm Password:</b></label>
                 <p class='error-message'><ErrorMessage name="passwordConfirmation" /></p>
-                <Field id="passwordConfirmation" type="password" placeholder="Repeat password" name="passwordConfirmation" :rules="confirmPwd" />
+                <Field type="password" placeholder="Repeat password" name="passwordConfirmation" id="passwordConfirmation" rules="required|confirmed:@password"/>
 
                 <button type="button" class="cancel-button" v-on:click="back">Cancel</button>
-                <button type="submit" class="register-submit" v-on:click="register">Register</button>
+                <button type="submit" class="signup-submit" v-on:click="signup">Sign Up</button>
             </Form>
-
         </div>
     </div>
 </template>
 
 <script>
-// import {Register} from '@/services/RegisterService'
+import { mapState, mapActions } from 'vuex'
 import HeadingComponent from '@/components/HeadingComponent.vue';
-import { Form, Field, ErrorMessage } from 'vee-validate';
+import { Form, Field, ErrorMessage, defineRule } from 'vee-validate';
+
+defineRule("required", (value) => {
+    if (!value) {
+      return "This field is required";
+    }
+
+    return true;
+});
+
+defineRule("min", (value, [min]) => {
+    if (value && value.length < min) {
+        return `Should be at least ${min} characters`;
+    }
+
+    return true;
+});
+
+defineRule("confirmed", (value, [other]) => {
+    if (value !== other) {
+      return `Passwords do not match`;
+    }
+
+    return true;
+});
+
+defineRule("valid-name", (value) => {
+    const regex = /^[A-Z]+[A-Z -]?[A-Z]+$/i;
+    if (!regex.test(value)) {
+        return 'Names can only use letters, - and spaces. Names should not begin or end with a space.';
+    }
+
+    return true;
+});
+
+defineRule("valid-email", (value) => {
+    const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    if (!regex.test(value)) {
+        return 'This field must be a valid email';
+    }
+
+    return true;
+});
+
+defineRule("valid-password", (value) => {
+    const regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.).*$/;
+    if (!regex.test(value)) {
+        return 'Input a password following the above rules';
+    }
+
+    return true;
+});
 
 export default ({
-    name: 'RegisterView',
+    name: 'SignUpView',
+    data () {
+        return {
+            user: {
+                firstName: '',
+                lastName: '',
+                email: '',
+                password: ''
+            },
+            submitted: false
+        }
+    },
     components: {
         HeadingComponent,
         Form,
         Field,
         ErrorMessage
     },
+    computed: {
+        ...mapState('account', ['status'])
+    },
     methods: {
         back() {
             this.$router.push('/');
         },
-        async handleRegister(values) {
-            console.log(JSON.stringify(values, null, 2));
-            if (this.validation() === true) {
-                console.log('registering...')
-            //     await Register(values.firstName,values.lastName,values.email, values.password);
-            }
-        },
-        validateName(value) {
-            // if the field is empty
-            if (!value) {
-                return 'This field is required';
-            }
-
-            // All is good
-            return true;
-        },
-        validateEmail(value) {
-            // if the field is empty
-            if (!value) {
-                return 'This field is required';
-            }
-
-            // if the field is not a valid email
-            const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-            if (!regex.test(value)) {
-                return 'This field must be a valid email';
-            }
-
-            // All is good
-            return true;
-        },
-        validatePwd(value) {
-            // if the field is empty
-            if (!value) {
-                return 'This field is required';
-            }
-
-            // if the field is not a valid email
-            const regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.).*$/;
-            if (!regex.test(value) || value.length < 8) {
-                return 'Input a password following the above rules';
-            }
-
-            // All is good
-            return true;
-        },
-        confirmPwd(value, target) {
-            // if the field is empty
-            if (!value) {
-                return 'This field is required';
-            }
-
-            if (value !== { target} ) {
-                return 'Passwords must match';
-            }
-
-            return true;
+        ...mapActions('account', ['register']),
+        handleSubmit() {
+            this.submitted = true;
+            this.register(this.user);
         }
     }
 })
@@ -159,6 +171,7 @@ export default ({
     button:hover {
         background-color: rgb(255, 206, 199);
         text-decoration: underline;
+        cursor: pointer;
     }
 
     p {

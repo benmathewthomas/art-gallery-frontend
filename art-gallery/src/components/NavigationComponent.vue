@@ -32,14 +32,15 @@
                 </ul>
             </div>
             <div class="nav-tools">
-                <div class="authentication" title="auth">
-                    <div @click="toggleLogin" class="nav-tools-login" title="Login">
-                        <span class="login-nav-button">login</span>
+                <div class="auth-tools" title="auth"  v-if="!this.showMenu">
+                    <div class="user-name" title="user-name" v-if="account.user">
+                        <span>Signed in as <b>{{ account.user.firstName }}</b></span>
                     </div>
-                    <div>
-                        <router-link to="/register" class="nav-link">
-                            <span>register</span>
-                        </router-link>
+                    <div @click="logout" class="nav-tools-login" title="Logout" v-if="account.user">
+                        <span class="login-nav-button">logout</span>
+                    </div>
+                    <div @click="toggleLogin" class="nav-tools-login" title="Login" v-if="(!account.user && $route.name !== 'login')">
+                        <span class="logout-nav-button">login</span>
                     </div>
                 </div>
                 <div @click="toggleMenu" class="nav-tools-menu" title="Menu">
@@ -59,12 +60,19 @@
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="/artworks" class="nav-link-1">
+                    <router-link to="/artworks" class="nav-link-2">
                         <span>Artworks</span>
                     </router-link>
                 </li>
                 <li>
-                    <router-link to="/culture" class="nav-link-2">
+                    <div class="nav-tools-login nav-link-3" v-if="!account.user">
+                        <router-link to="/login">
+                            <span>log in</span>
+                        </router-link>
+                    </div>
+                </li>
+                <li>
+                    <router-link to="/culture" class="nav-link-1">
                         <span>Art & Culture</span>
                     </router-link>
                 </li>
@@ -73,16 +81,26 @@
                         <span>Exhibitions</span>
                     </router-link>
                 </li>
+                <li>
+                    <div class="nav-tools-signup nav-link-3" v-if="!account.user">
+                        <router-link to="/signup">
+                            <span>sign up</span>
+                        </router-link>
+                    </div>
+                </li>
             </ul>
         </div>
-        <div class="login-box" v-if="this.showLogin">
-            <LoginComponent @hide-component="hideCallback"/>
+
+        <div class="login-box" v-if="(this.showLogin && !account.user && $route.name !== 'login')">
+            <LoginComponent />
         </div>
     </nav>
 </template>
 
 <script>
 import LoginComponent from '@/components/LoginComponent.vue'
+import { mapState } from 'vuex'
+import { userService } from '@/services/UserService'
 
 export default {
     data () {
@@ -91,6 +109,13 @@ export default {
             showLogin: false
         }
     },
+    watch: {
+            // eslint-disable-next-line
+            $route (to, from){
+                this.showLogin = false;
+                this.showMenu = false;
+            }
+        },
     components: { LoginComponent },
     methods: {
         toggleLogin () {
@@ -111,89 +136,143 @@ export default {
                 this.showMenu = false
             }
         },
-        hideCallback () {
-            this.showLogin = false
+        logout () {
+            userService.Logout()
         }
+    },
+    computed: {
+        currentRouteName() {
+            return this.$route.name;
+        },
+        ...mapState({
+            account: state => state.account
+        })
     }
 }
 </script>
 
 <style scoped>
-.navigation-component {
-    border-bottom: 2px solid lightgray;
-    margin-top: 10px;
-}
-a {
-    outline: none;
-    text-decoration: none;
-}
-.nav-site, .nav-menu, .nav-tools {
-    display: inline-flex;
-    margin-top: calc(4px + (100vw - 320px) / 1040);
-}
-.nav-site, .nav-menu {
-    text-align: left;
-}
-.nav-home-icon, .nav-tools-menu svg{
-    max-width: 28px;
-    width: calc(24px + 6 * (100vw - 320px) / 1040);
-    margin-left: calc(10px + 2 * (100vw - 320px) / 1040);
-}
-.nav-link:hover, .nav-link-1:hover, .nav-link-2:hover {
-    color:orange;
-    transition: .1s;
-    transition-delay: 0;
-}
-.nav-home-icon {
-    margin-top: 2px;
-    margin-right: 5px;
-}
-.nav-menu, .nav-menu-dropdown {
-    font-family:Arial Narrow, Arial, Helvetica, sans-serif;
-    text-transform: lowercase;
-    letter-spacing: .1em;
-    font-weight: bold;
-    padding: 0;
-    list-style: none;
-}
-.nav-menu {
-    font-size: calc(16px + 3 * (100vw - 320px) / 1040);
-}
-.nav-menu-dropdown {
-    display: grid;
-    grid-template-columns: auto auto;
-    font-size: calc(20px + 4 * (100vw - 320px) / 1040);
-    row-gap: 30px;
-}
+    .navigation-component {
+        border-bottom: 2px solid lightgray;
+        margin-top: 10px;
+    }
 
-.nav-link-1 {
-    grid-column-start: 1;
-}
-.nav-link-2 {
-    grid-column-start: 2;
-}
-.nav-link, .nav-link-1, .nav-link-2 {
-    margin-left: calc(0px + 10 * (100vw - 320px) / 1040);
-    margin-right: calc(0px + 10 * (100vw - 320px) / 1040);
-    color: black;
-}
-.nav-tools {
-    text-align: right;
-}
-.nav-tools-menu svg{
-    fill: black;
-}
-svg:hover, .nav-tools svg:hover {
-    transition: .1s;
-    transition-delay: 0;
-    fill:rgb(255, 94, 0);
-}
-@media only screen and (max-width: 600px) {
-    .nav-link{
-        display: none;
+    a {
+        outline: none;
+        text-decoration: none;
+    }
+    .nav-site, .nav-menu, .nav-tools {
+        display: inline-flex;
+        margin-top: calc(4px + (100vw - 320px) / 1040);
+    }
+    .nav-site, .nav-menu {
+        text-align: left;
+    }
+
+    .nav-tools-menu {
+        cursor:pointer;
+    }
+
+    .nav-home-icon, .nav-tools-menu svg{
+        max-width: 28px;
+        width: calc(24px + 6 * (100vw - 320px) / 1040);
+        margin-left: calc(10px + 2 * (100vw - 320px) / 1040);
+    }
+    .nav-link:hover, .nav-link-1:hover, .nav-link-2:hover {
+        color:rgb(255, 102, 0);
+        transition: .1s;
+        transition-delay: 0;
+    }
+    .nav-home-icon {
+        margin-top: 2px;
+        margin-right: 5px;
+    }
+    .nav-menu, .nav-menu-dropdown {
+        font-family:Arial Narrow, Arial, Helvetica, sans-serif;
+        text-transform: lowercase;
+        letter-spacing: .1em;
+        font-weight: bold;
+        padding: 0;
+        list-style: none;
+    }
+    .nav-menu {
+        font-size: calc(16px + 3 * (100vw - 320px) / 1040);
     }
     .nav-menu-dropdown {
-        font-size: 1.6em;
+        display: grid;
+        grid-template-columns: auto auto 100px;
+        font-size: calc(20px + 4 * (100vw - 320px) / 1040);
+        row-gap: 30px;
     }
-}
+
+    .nav-link-1 {
+        grid-column-start: 1;
+    }
+
+    .nav-link-2 {
+        grid-column-start: 2;
+    }
+
+    .nav-link-3 {
+        grid-column-start: 3;
+    }
+    .nav-link, .nav-link-1, .nav-link-2, .nav-link-3 {
+        margin-left: calc(0px + 10 * (100vw - 320px) / 1040);
+        margin-right: calc(0px + 10 * (100vw - 320px) / 1040);
+        color: black;
+    }
+    .nav-tools {
+        text-align: right;
+    }
+    .nav-tools-menu svg{
+        fill: black;
+    }
+    svg:hover, .nav-tools svg:hover {
+        transition: .1s;
+        transition-delay: 0;
+        fill:rgb(255, 94, 0);
+    }
+
+    .nav-tools-login, .nav-tools-signup, .nav-tools-login:visited, .nav-tools-signup:visited {
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-variant: small-caps;
+        font-size: large;
+        display: inline-block;
+        font-weight: 400;
+        margin-left: calc(0px + 10 * (100vw - 320px) / 1040);
+        margin-right: calc(0px + 10 * (100vw - 320px) / 1040);
+        color: black;
+    }
+
+    .user-name {
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: small;
+        display: inline-block;
+        margin-right: 10px;
+        color: black;
+    }
+
+    .nav-tools-login span:hover, .nav-tools-signup span:hover{
+        color: rgb(255, 94, 0);
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    :deep .container {
+        text-align: right;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .nav-link, .auth-tools{
+            display: none;
+        }
+
+        .nav-tools-signup a {
+            color: black;
+        }
+
+        .nav-menu-dropdown {
+            font-size: 1.6em;
+        }
+    }
 </style>
