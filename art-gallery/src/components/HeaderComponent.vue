@@ -38,17 +38,17 @@ export default {
 .logo-text{
     fill:white;
 }
-::v-deep .header-socials ul{
+:deep .header-socials ul {
     list-style: none;
     text-align: right;
     margin-top:.3em;
 }
-::v-deep .social {
+:deep .social {
     margin-left: calc(2px + 2 * (100vw - 320px) / 1040);
     margin-right: calc(2px + 2 * (100vw - 320px) / 1040);
     display: inline-block;
 }
-::v-deep .header-socials .socials-svg {
+:deep .header-socials .socials-svg {
     height: 24px;
     width: 24px;
     fill:black;
@@ -63,13 +63,13 @@ a {
     transition-delay: 0;
     fill:rgb(185, 28, 0);
 }
-::v-deep svg:hover, ::v-deep .header-socials svg:hover {
+:deep svg:hover, :deep .header-socials svg:hover {
     transition: .1s;
     transition-delay: 0;
     fill:rgb(255, 94, 0);
 }
 @media only screen and (max-width: 600px) {
-    ::v-deep .header-socials {
+    :deep .header-socials {
         display: none;
     }
 }

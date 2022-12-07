@@ -41,17 +41,17 @@ export default {
 </script>
 
 <style scoped>
-::v-deep .footer-socials ul{
+:deep .footer-socials ul{
     list-style: none;
     text-align: right;
     margin-top:1em;
 }
-::v-deep .social {
+:deep .social {
     margin-left: calc(2px + 2 * (100vw - 320px) / 1040);
     margin-right: calc(2px + 2 * (100vw - 320px) / 1040);
     display: inline-block;
 }
-::v-deep .footer-socials .socials-svg {
+:deep .footer-socials .socials-svg {
     height: 34px;
     width: 34px;
     fill: rgb(36, 36, 36);
@@ -91,7 +91,7 @@ a {
 .footer-links span {
     padding-right: 10px;
 }
-::v-deep svg:hover, ::v-deep .footer-socials svg:hover {
+:deep svg:hover, :deep .footer-socials svg:hover {
     transition: .1s;
     transition-delay: 0;
     fill:rgb(255, 94, 0);
@@ -105,10 +105,10 @@ a {
         display: block;
         line-height: 180%;
     }
-    .footer-links, ::v-deep .footer-socials {
+    .footer-links, :deep .footer-socials {
         width: 100%;
     }
-    ::v-deep .footer-socials ul {
+    :deep .footer-socials ul {
         text-align: left;
         padding-left: 0;
     }

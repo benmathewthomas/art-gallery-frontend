@@ -25,7 +25,7 @@
                     </tr>
                 </tbody>
             </table>
-            <button v-on:click="showInputs" class="plus-button">+</button>
+            <button v-on:click="showInputs" class="plus-button" v-if="account.user">+</button>
         </div>
 
         <div class="entry-div" v-if="entryClicked">
@@ -40,6 +40,7 @@
 
 <script>
 import { postExhibition } from '@/services/ExhibitionService'
+import { mapState } from 'vuex'
 
 export default {
     name: 'TableExhibition',
@@ -78,13 +79,26 @@ export default {
 
         // Add entry to database.
         async addEntry() {
-            await postExhibition(this.name, this.description, this.backgroundImageUrl);
+            // Check for authentication
+            if (!this.account.user)
+            {
+                console.log('Error: not logged in')
+            }
+            if (this.account.user)
+            {
+                await postExhibition(this.name, this.description, this.backgroundImageUrl);
+            }
 
             if (this.exhibitions.name != "undefined")
             {
                 this.$emit('updateData');
             }
         },
+    },
+    computed: {
+        ...mapState({
+            account: state => state.account
+        })
     }
 };
 </script>
