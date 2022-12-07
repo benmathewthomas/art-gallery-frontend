@@ -9,16 +9,12 @@
         </div>
         <input type="text" class="search-input" v-model="search" placeholder="Search..."/>
         <div class="table-div">
-            <a-row type="flex" justify="space-around" align="middle" class="table-head">
-                <a-col :span="7"> </a-col>
-                <a-col :span="6">TITLE</a-col>
-                <a-col :span="11">DESCRIPTION</a-col>
-            </a-row>
-            <a-row type="flex" justify="space-around" align="middle" class="table-row" wrap v-for="item in exhibitions" :key="item">
-                <a-col :span="7" class="table-cell" xs="24" xl="8"><img :src="item.backgroundImageUrl" class="img-exh"/></a-col>
-                <a-col :span="6" class="table-cell" xs="24" xl="8"><h3 class="h3-title">{{ item.name }}</h3></a-col>
-                <a-col :span="11" class="table-cell" xs="24" xl="8"><p class="description">{{ item.description }}</p></a-col>
-            </a-row>
+            <a-table 
+                class="ant-table"
+                :columns="columns" 
+                :data-source="exhibitions" 
+                bordered>
+            </a-table>
         </div>
     </div>
 </template>
@@ -29,15 +25,36 @@ export default {
     props: {
         exhibitions: {
             type : Array
+        },
+        fields: {
+            type: Array
         }
     },
     data() {
         return {
+
+        columns: [
+          {
+            title: 'Name',
+            dataIndex: 'name',
+            key: 'name',
+          },
+          {
+            title: 'Description',
+            dataIndex: 'description',
+            key: 'description',
+          },
+          {
+            title: 'Image',
+            dataIndex: 'backgroundImageUrl',
+            key: 'backgroundImageUrl',
+            customRender: (data) => {
+                return <img src={data.text} />
+            } 
+          },
+        ],
             search: "",
             entryClicked: false,
-            name: "",
-            description: "",
-            backgroundImageUrl: ""
         }
     },
 }
@@ -60,13 +77,11 @@ export default {
         overflow-x:auto;
     }
 
-    .table-head {
+    .ant-table {
         color: #343737;
         padding: 20px;
-        background-color:#aad6c7;
         font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         font-size: 22px;
-        border: 1px solid #ffffff;
     }
 
     .table-cell {
@@ -119,7 +134,7 @@ export default {
     }
 
     .img-exh {
-        width: 100%;
+        width: 300px;
         max-height: 200px;
         object-fit: cover;
         display: block;

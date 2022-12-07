@@ -2,7 +2,7 @@
   <div class="exhibitions">
     <HeadingComponent title="EXHIBITIONS"/>
     <TableExhibition :exhibitions="this.exhibitions" v-on:updateData="updateData()"/>
-    <TableAntDesign :exhibitions="this.exhibitions"/>
+    <TableAntDesign :exhibitions="this.exhibitions" :fields="this.fields"/>
   </div>
 </template>
 
