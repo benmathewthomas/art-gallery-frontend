@@ -9,7 +9,7 @@
         </div>
         <input type="text" class="search-input" v-model="search" placeholder="Search..."/>
         <div class="table-div">
-            <table class="table-exh">
+            <table class="table-exh" border="1">
                 <thead>
                     <tr>
                         <th> </th>
@@ -19,7 +19,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="item in filterTable()" :key="item">
-                        <img :src="item.backgroundImageUrl" class="img-exh"/>
+                        <td><img :src="item.backgroundImageUrl" class="img-exh"/></td>
                         <td><h3 class="h3-title">{{ item.name }}</h3></td>
                         <td class="description">{{ item.description }}</td>
                     </tr>
@@ -101,7 +101,6 @@ export default {
     .table-exh {
         margin-top: 10px;
         width:100%;
-        border-spacing: 0 12px;
     }
 
     .table-exh th {
@@ -113,7 +112,7 @@ export default {
     }
 
     .table-exh td, th {
-        padding: 8px;
+        border: 1px solid #ffffff;
     }
 
     .table-exh tr {
@@ -128,8 +127,8 @@ export default {
 
     .table-exh td {
         color:#343737;
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
         font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         font-size: 18px;
         text-align: center;
@@ -195,23 +194,34 @@ export default {
     }
 
     .img-exh {
-        width: 300px;
+        width: 100%;
         max-height: 200px;
         object-fit: cover;
         display: block;
         margin-left: auto;
         margin-right: auto;
-        padding-top: 20px;
-        padding-bottom: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .h3-title {
-        font-size: 25px;
+        font-size: 22px;
         font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 
     .description {
         max-width: 600px;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .img-exh {
+            padding-top: 1px;
+            padding-bottom: 1px;
+            padding-left: 1px;
+            padding-right: 1px;
+        }
     }
 
 </style>
