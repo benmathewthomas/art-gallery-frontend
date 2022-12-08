@@ -19,7 +19,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="item in filterTable()" :key="item">
-                        <img :src="item.backgroundImageUrl"/>
+                        <img :src="item.backgroundImageURL"/>
                         <td><h3>{{ item.name }}</h3></td>
                         <td class="description">{{ item.description }}</td>
                     </tr>
@@ -31,7 +31,10 @@
         <div class="entry-div" v-if="entryClicked">
             <input type="text" v-model="name" class="table-input" placeholder="Enter name..."/>
             <input type="text" v-model="description" class="table-input" placeholder="Enter description..."/>
-            <input type="text" v-model="backgroundImageUrl" class="table-input" placeholder="Enter backgroundImageUrl..."/>
+            <input type="text" v-model="backgroundImageURL" class="table-input" placeholder="Enter backgroundImageURL..."/>
+            <!-- Added to match the new model - might be better as a special date input? -->
+            <input type="text" v-model="startDate" class="table-input" placeholder="Enter start date as DD/MM/YYYY..."/>
+            <input type="text" v-model="endDate" class="table-input" placeholder="Enter end date as DD/MM/YYYY..."/>
             <button v-on:click="addEntry" class="entry-button">Add entry</button>
         </div>
 
@@ -58,7 +61,9 @@ export default {
             entryClicked: false,
             name: "",
             description: "",
-            backgroundImageUrl: ""
+            backgroundImageURL: "",
+            startDate: '',
+            endDate: ''
         }
     },
     methods: {
@@ -79,14 +84,14 @@ export default {
 
         // Add entry to database.
         async addEntry() {
-            // Check for authentication
+            // Check for authentication credentials
             if (!this.account.user)
             {
                 console.log('Error: not logged in')
             }
             if (this.account.user)
             {
-                await postExhibition(this.name, this.description, this.backgroundImageUrl);
+                await postExhibition(this.name, this.description, this.backgroundImageURL, this.startDate, this.endDate);
             }
 
             if (this.exhibitions.name != "undefined")
