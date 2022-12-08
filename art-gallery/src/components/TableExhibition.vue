@@ -19,7 +19,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="item in filterTable()" :key="item">
-                        <td><img :src="item.backgroundImageUrl" class="img-exh"/></td>
+                        <td><img :src="item.backgroundImageURL" class="img-exh"/></td>
                         <td><h3 class="h3-title">{{ item.name }}</h3></td>
                         <td class="description">{{ item.description }}</td>
                     </tr>

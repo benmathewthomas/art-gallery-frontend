@@ -61,7 +61,7 @@
                 cell.innerHTML = item.contributingArtists;
 
                 cell = row.insertCell(-1);
-                cell.innerHTML = item.media;
+                cell.innerHTML = item.mediaType;
 
                 cell = row.insertCell(-1);
                 cell.innerHTML = item.yearCreated;

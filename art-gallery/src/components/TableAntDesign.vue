@@ -46,8 +46,8 @@ export default {
           },
           {
             title: 'Image',
-            dataIndex: 'backgroundImageUrl',
-            key: 'backgroundImageUrl',
+            dataIndex: 'backgroundImageURL',
+            key: 'backgroundImageURl',
             customRender: (data) => {
                 return <img src={data.text} />
             } 

@@ -1,18 +1,18 @@
 <template>
   <div class="culture">
     <HeadingComponent title="ART & CULTURE"/>
-    <FeaturedArtwork  />
+    <FeaturedArtist  />
   </div>
 </template>
   
 <script>
-import FeaturedArtwork from '@/components/FeaturedArtwork.vue';
+import FeaturedArtist from '@/components/FeaturedArtist.vue';
 import HeadingComponent from '@/components/HeadingComponent.vue';
 
 export default {
   name: 'CultureView',
   components: {
-    FeaturedArtwork,
+    FeaturedArtist,
     HeadingComponent
 },
 }

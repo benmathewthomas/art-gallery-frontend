@@ -1,9 +1,12 @@
 <template>
     <div class="card-div">
-        <img :src="require(`../assets/img/${image}`)" class="card-img"/>
-        <h2>{{ this.artistName }}</h2>
-        <h3>{{ this.artworkTitle }}</h3>
-        <p>{{ this.description }}</p>
+        <h1 class="card-heading">{{ heading }}</h1>
+        <img :src="imageURL" class="card-img"/>
+        <h2 class="card-subheading">{{ subheading }}</h2>
+        <h4 class="detail">{{ detail1 }}</h4>
+        <h4>{{ detail2 }}</h4>
+        <h4>{{ detail3 }}</h4>
+        <h4>{{ detail4 }}</h4>
     </div>
 </template>
 
@@ -11,16 +14,25 @@
 export default {
     name: "CardComponent",
     props: {
-        image: {
+        heading: {
             type: String
         },
-        artistName: {
+        imageURL: {
             type: String
         },
-        artworkTitle: {
+        subheading: {
             type: String
         },
-        description: {
+        detail1: {
+            type: String
+        },
+        detail2: {
+            type: String
+        },
+        detail3: {
+            type: String
+        },
+        detail4: {
             type: String
         }
     }
@@ -42,7 +54,32 @@ export default {
 
     .card-img {
         width:90%;
-        padding-top: 40px;
+        padding-top: 20px;
+    }
+
+    .card-heading {
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        letter-spacing: 4px;
+        color: #343737;
+        padding-top: 20px;
+        font-weight: bold;
+        font-size: 35px;
+    }
+
+    .card-subheading {
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        letter-spacing: 4px;
+        color: #343737;
+        padding-top: 20px;
+        font-size: 35px;
+    }
+
+    .detail {
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        letter-spacing: 3px;
+        color: #343737;
+        padding-bottom: 20px;
+        font-size: 20px;
     }
 
 </style>
