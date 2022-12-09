@@ -1,6 +1,5 @@
 // Fetch exhibitions from database.
 export async function getExhibitions() {
-
   const response = await fetch('/api/exhibitions')
   return await response.json();
 }

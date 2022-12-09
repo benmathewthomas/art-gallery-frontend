@@ -1,12 +1,12 @@
 <template>
     <div class="card-div">
         <h1 class="card-heading">{{ heading }}</h1>
-        <img :src="imageURL" class="card-img"/>
+        <img class="card-img" :src="imageURL" />
         <h2 class="card-subheading">{{ subheading }}</h2>
         <h4 class="detail">{{ detail1 }}</h4>
-        <h4>{{ detail2 }}</h4>
-        <h4>{{ detail3 }}</h4>
-        <h4>{{ detail4 }}</h4>
+        <h4 class="detail">{{ detail2 }}</h4>
+        <h4 class="detail">{{ detail3 }}</h4>
+        <h4 class="detail">{{ detail4 }}</h4>
     </div>
 </template>
 
@@ -50,10 +50,13 @@ export default {
         box-shadow: 10px 10px 10px rgb(190, 189, 189);
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         padding: 20px;
+        padding-bottom: 40px;
     }
 
     .card-img {
         width:90%;
+        max-height: 500px;
+        object-fit: cover;
         padding-top: 20px;
     }
 
@@ -76,10 +79,9 @@ export default {
 
     .detail {
         font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        letter-spacing: 3px;
+        letter-spacing: 2px;
         color: #343737;
-        padding-bottom: 20px;
-        font-size: 20px;
+        font-size: 18px;
     }
 
 </style>

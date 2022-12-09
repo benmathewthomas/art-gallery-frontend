@@ -27,7 +27,6 @@ export default {
                     this.artistOfDay = data;
                     this.dataLoaded = true;
             });
-            console.log(this.artistOfDay);
         }
     },
     mounted() {

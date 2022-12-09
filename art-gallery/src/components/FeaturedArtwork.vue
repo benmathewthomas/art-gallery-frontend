@@ -1,0 +1,50 @@
+<template v-if="dataLoaded">
+    <CardComponent 
+        :heading="`ARTWORK OF THE DAY`" 
+        :subheading="artworkOfDay.title" 
+        :imageURL="artworkOfDay.primaryImageURL"
+        :detail1="artworkOfDay.mediaType"
+        :detail2="String(artworkOfDay.yearCreated)"
+        :detail3="contributingArtists"
+        :detail4="artworkOfDay.description" />
+</template>
+
+<script>
+import CardComponent from './CardComponent.vue';
+import { getArtworkOfTheDay } from '../services/ArtworkService'
+
+export default {
+    name: "FeaturedArtwork",
+    components: { CardComponent },
+    data() {
+        return {
+            artworkOfDay: [],
+            dataLoaded: false,
+            contributingArtists: ""
+        }
+    },
+    methods: {
+        // Gets the data from endpoint and stores in an array.
+        async fetchArtworkOfTheDay() {
+            await getArtworkOfTheDay()
+                .then(data => {
+                    this.artworkOfDay = data;
+            });
+            console.log(this.artworkOfDay.contributingArtists);
+            this.getContributingArtists();
+            this.dataLoaded = true;
+        },
+
+        getContributingArtists() {
+            this.contributingArtists = this.artworkOfDay.contributingArtists.join('');
+        }
+    },
+    mounted() {
+        this.fetchArtworkOfTheDay();
+    }
+}
+</script>
+
+<style scoped>
+
+</style>
