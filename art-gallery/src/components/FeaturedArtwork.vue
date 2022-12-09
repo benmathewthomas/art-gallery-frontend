@@ -30,7 +30,6 @@ export default {
                 .then(data => {
                     this.artworkOfDay = data;
             });
-            console.log(this.artworkOfDay.contributingArtists);
             this.getContributingArtists();
             this.dataLoaded = true;
         },

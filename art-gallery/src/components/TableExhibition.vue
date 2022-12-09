@@ -15,6 +15,8 @@
                         <th> </th>
                         <th>TITLE</th>
                         <th>DESCRIPTION</th>
+                        <th>START</th>
+                        <th>END</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,6 +24,8 @@
                         <td><img :src="item.backgroundImageURL" class="img-exh"/></td>
                         <td><h3 class="h3-title">{{ item.name }}</h3></td>
                         <td class="description">{{ item.description }}</td>
+                        <td class="description">{{ item.startDate }}</td>
+                        <td class="description">{{ item.endDate }}</td>
                     </tr>
                 </tbody>
             </table>
