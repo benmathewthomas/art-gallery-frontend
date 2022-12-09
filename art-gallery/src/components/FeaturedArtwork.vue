@@ -35,7 +35,7 @@ export default {
         },
 
         getContributingArtists() {
-            this.contributingArtists = this.artworkOfDay.contributingArtists.join('');
+            this.contributingArtists = this.artworkOfDay.contributingArtists.join(", ");
         }
     },
     mounted() {
