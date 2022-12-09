@@ -80,12 +80,12 @@
 
                 var highlightRow = function(row) {
                     return function() {
-                        row.style = "background-color:#f1f1f1";
+                        row.style = "background-color:#f5f5f5";
                     };
                 };
                 var removeHighlight = function(row) {
                     return function() {
-                        row.style = "background-color:#e7e7e7";
+                        row.style = "background-color:#ffffff";
                     }
                 }
                 currentRow.onmouseover = highlightRow(currentRow);
@@ -158,8 +158,7 @@
         padding-bottom: 20px;
         font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         font-size: 18px;
-        background-color:#e7e7e7;
-        border: 1px solid #ffffff;
+        border: 1px solid #dedcdc;;
     }
 
     .search-input {

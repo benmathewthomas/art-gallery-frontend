@@ -1,6 +1,7 @@
 <template v-if="dataLoaded">
   <div class="exhibitions">
     <HeadingComponent title="EXHIBITIONS"/>
+    <TableAntDesign :exhibitions="this.exhibitions"/>
     <TableExhibition :exhibitions="this.exhibitions" v-on:updateData="updateData()"/>
   </div>
 </template>
@@ -9,12 +10,14 @@
 import { getExhibitions } from '../services/ExhibitionService'
 import TableExhibition from '../components/TableExhibition.vue';
 import HeadingComponent from '@/components/HeadingComponent.vue';
+import TableAntDesign from '@/components/TableAntDesign.vue';
 
 export default {
   name: 'ExhibitionsView',
   components: {
     TableExhibition,
     HeadingComponent,
+    TableAntDesign
 },
   data() {
     return  {

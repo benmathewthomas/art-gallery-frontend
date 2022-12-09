@@ -135,16 +135,16 @@ export default {
     }
 
     .table-exh td, th {
-        border: 1px solid #ffffff;
+        border: 1px solid #dedcdc;
     }
 
     .table-exh tr {
-        background-color:#e7e7e7;
+        background-color:#ffffff;
         border: 1px;
     }
 
     .table-exh tr:hover {
-        background-color:#f1f1f1;
+        background-color:#f5f5f5;
         border: 1px;
     }
 
@@ -218,6 +218,7 @@ export default {
 
     .img-exh {
         width: 100%;
+        max-width:400px;
         max-height: 200px;
         object-fit: cover;
         display: block;
@@ -230,7 +231,7 @@ export default {
     }
 
     .h3-title {
-        font-size: 22px;
+        font-size: 18px;
         font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
 
