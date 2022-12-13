@@ -48,24 +48,41 @@ export default {
                 {
                     title: 'Description',
                     align: 'center',
+                    sorter: (a, b) => a.description.localeCompare(b.description),
                     dataIndex: 'description',
                     key: 'description',
                 },
                 {
                     title: 'Start',
                     align: 'center',
+                    sorter: (a, b) => this.dateCompare(a.startDate, b.startDate),
                     dataIndex: 'startDate',
                     key: 'startDate'
                 },
                 {
                     title: 'End',
                     align: 'center',
+                    sorter: (a, b) => this.dateCompare(a.startDate, b.startDate),
                     dataIndex: 'endDate',
                     key: 'endDate'
                 }
             ]
-            }
+        }
     },
+    methods: {  
+        // Compares two dates returning int indicating larger, smaller or equal.
+        dateCompare(date1, date2) {
+            if (date1 > date2) {
+                return 1;
+            }
+            else if (date1 < date2) {
+                return -1;
+            }
+            else {
+                return 0;
+            }
+        }
+    }
 }
 </script>
 
