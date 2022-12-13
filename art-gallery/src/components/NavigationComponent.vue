@@ -161,7 +161,6 @@ export default {
         outline: none;
         text-decoration: none;
     }
-
     .nav-site, .nav-menu, .nav-tools {
         display: inline-flex;
         margin-top: calc(4px + (100vw - 320px) / 1040);
@@ -179,35 +178,26 @@ export default {
         width: calc(24px + 6 * (100vw - 320px) / 1040);
         margin-left: calc(10px + 2 * (100vw - 320px) / 1040);
     }
-
     .nav-link:hover, .nav-link-1:hover, .nav-link-2:hover {
         color:rgb(255, 102, 0);
         transition: .1s;
         transition-delay: 0;
     }
-
-    .nav-link:focus, .nav-link-1:focus, .nav-link-2:focus {
-        color:rgb(255, 102, 0);
-    }
-
     .nav-home-icon {
         margin-top: 2px;
         margin-right: 5px;
     }
-
     .nav-menu, .nav-menu-dropdown {
-        font-family: Arial Narrow, Arial, Helvetica, sans-serif;
+        font-family:Arial Narrow, Arial, Helvetica, sans-serif;
         text-transform: lowercase;
         letter-spacing: .1em;
         font-weight: bold;
         padding: 0;
         list-style: none;
     }
-
     .nav-menu {
         font-size: calc(16px + 3 * (100vw - 320px) / 1040);
     }
-
     .nav-menu-dropdown {
         display: grid;
         grid-template-columns: auto auto 100px;
@@ -226,21 +216,17 @@ export default {
     .nav-link-3 {
         grid-column-start: 3;
     }
-
     .nav-link, .nav-link-1, .nav-link-2, .nav-link-3 {
         margin-left: calc(0px + 10 * (100vw - 320px) / 1040);
         margin-right: calc(0px + 10 * (100vw - 320px) / 1040);
         color: black;
     }
-
     .nav-tools {
         text-align: right;
     }
-
     .nav-tools-menu svg{
         fill: black;
     }
-
     svg:hover, .nav-tools svg:hover {
         transition: .1s;
         transition-delay: 0;
