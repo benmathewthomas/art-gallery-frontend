@@ -56,6 +56,22 @@ export default {
                     title: 'Start',
                     align: 'center',
                     sorter: (a, b) => this.dateCompare(a.startDate, b.startDate),
+                    filters: [
+                        {
+                            text: '2022',
+                            value: '2022',
+                        },
+                        {
+                            text: '2023',
+                            value: '2023',
+                        },
+                        {
+                            text: '2024',
+                            value: '2024',
+                        },
+                    ],
+                    filterMultiple: false,
+                    onFilter: (a, b) => b.startDate.indexOf(a) == 0,
                     dataIndex: 'startDate',
                     key: 'startDate'
                 },
@@ -63,6 +79,22 @@ export default {
                     title: 'End',
                     align: 'center',
                     sorter: (a, b) => this.dateCompare(a.startDate, b.startDate),
+                    filters: [
+                        {
+                            text: '2022',
+                            value: '2022',
+                        },
+                        {
+                            text: '2023',
+                            value: '2023',
+                        },
+                        {
+                            text: '2024',
+                            value: '2024',
+                        },
+                    ],
+                    filterMultiple: false,
+                    onFilter: (a, b) => b.startDate.indexOf(a) == 0,
                     dataIndex: 'endDate',
                     key: 'endDate'
                 }
