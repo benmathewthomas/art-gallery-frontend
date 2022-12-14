@@ -1,6 +1,7 @@
 <template>
     <HeaderComponent />
     <NavigationComponent />
+    <NavigationDropdown />
     <div class="alerts">
         <div v-if="alert.message" :class="`alert ${alert.type}`">{{alert.message}}</div>
     </div>
@@ -13,6 +14,7 @@ import { mapState, mapActions } from 'vuex'
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import NavigationComponent from '@/components/NavigationComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
+import NavigationDropdown from './components/NavigationDropdown.vue';
 
 export default {
     name: 'app',
@@ -34,10 +36,11 @@ export default {
             }
         },
       components: {
-        HeaderComponent,
-        NavigationComponent,
-        FooterComponent
-      }
+    HeaderComponent,
+    NavigationComponent,
+    FooterComponent,
+    NavigationDropdown
+}
 };
 </script>
 

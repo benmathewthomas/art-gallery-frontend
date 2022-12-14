@@ -1,6 +1,5 @@
 <template v-if="dataLoaded">
     <CardComponent 
-        :heading="`ARTIST OF THE DAY`" 
         :subheading="artistOfDay.displayName" 
         :imageURL="artistOfDay.profileImageURL"
         :detail1="(`Born: ` + artistOfDay.yearOfBirth + `, ` + artistOfDay.placeOfBirth)"/>
@@ -34,7 +33,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-
-</style>

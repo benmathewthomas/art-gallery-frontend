@@ -7,6 +7,8 @@ import SignUpView from '@/views/SignUpView'
 import AboutView from '@/views/AboutView'
 import ContactView from '@/views/ContactView'
 import LoginView from '@/views/LoginView'
+import ArtistDayView from '@/views/ArtistDayView'
+import ArtworkDayView from '@/views/ArtworkDayView'
 
 const routes = [
   {
@@ -43,6 +45,16 @@ const routes = [
     path: '/login',
     name: 'login',
     component: LoginView
+  },
+  {
+    path: '/artistofday',
+    name: 'artistofday',
+    component: ArtistDayView
+  },
+  {
+    path: '/artworkofday',
+    name: 'artworkofday',
+    component: ArtworkDayView
   },
   {
     // Currently restricted view for auth testing

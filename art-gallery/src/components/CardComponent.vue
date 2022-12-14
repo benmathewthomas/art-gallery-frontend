@@ -57,7 +57,7 @@ export default {
         width:90%;
         max-height: 500px;
         object-fit: cover;
-        padding-top: 20px;
+        padding-top: 10px;
     }
 
     .card-heading {
@@ -65,7 +65,7 @@ export default {
         letter-spacing: 4px;
         color: #343737;
         padding-top: 20px;
-        font-weight: bold;
+        font-weight:lighter;
         font-size: 35px;
     }
 

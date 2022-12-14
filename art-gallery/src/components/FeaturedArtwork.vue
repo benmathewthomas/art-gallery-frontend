@@ -1,6 +1,5 @@
 <template v-if="dataLoaded">
     <CardComponent 
-        :heading="`ARTWORK OF THE DAY`" 
         :subheading="artworkOfDay.title" 
         :imageURL="artworkOfDay.primaryImageURL"
         :detail1="artworkOfDay.mediaType"
@@ -43,7 +42,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-
-</style>
