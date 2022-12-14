@@ -30,14 +30,28 @@
 
     export default {
     name: "TableHtml",
+    data() {
+        return {
+            artworks: [],
+            contributingArtists: ""
+        }
+    },
     methods: {
         // Gets the data from endpoint and stores in an array.
         async fetchArtworks() {
             await getArtworks()
                 .then(data => {
-                this.artworks = data;
+                    this.artworks = data;
             });
-          this.fillTableWithData();
+            this.getContributingArtists();
+            this.fillTableWithData();
+        },
+
+        // Adds space between artist names.
+        getContributingArtists() {
+            this.artworks.forEach( item => {
+                item.contributingArtists = item.contributingArtists.join(", ")
+            })
         },
 
         // Fill table with data from artwork service.
