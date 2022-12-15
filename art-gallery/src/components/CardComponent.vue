@@ -84,4 +84,22 @@ export default {
         font-size: 18px;
     }
 
+    @media only screen and (max-width: 600px) {
+        .card-div {
+            width: 90%;
+            padding: 0px;
+            padding-bottom: 10px;
+        }
+
+        .card-subheading {
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+
+        .detail {
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+    }
+
 </style>

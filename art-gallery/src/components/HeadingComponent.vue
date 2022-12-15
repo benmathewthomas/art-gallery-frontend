@@ -22,4 +22,10 @@
         color: #343737;
         letter-spacing: 5px;
     }
+
+    @media only screen and (max-width: 600px) {
+        .heading {
+            font-size: 30px;
+        }
+    }
 </style>

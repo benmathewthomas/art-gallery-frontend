@@ -19,8 +19,14 @@ export default {
 </script>
 
 <style scoped>
-.artworks {
-  width: 70%;
-  margin:auto;
+  .artworks {
+    width: 70%;
+    margin:auto;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .artworks {
+      width: 95%;
+    }
 }
 </style>

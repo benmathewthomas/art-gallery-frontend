@@ -219,6 +219,7 @@ export default {
     .img-exh {
         width: 100%;
         max-width:400px;
+        min-width:200px;
         max-height: 200px;
         object-fit: cover;
         display: block;
@@ -245,6 +246,26 @@ export default {
             padding-bottom: 1px;
             padding-left: 1px;
             padding-right: 1px;
+            max-height: 120px;
+        }
+
+        .main-div {
+            margin: 0px;
+        }
+
+        .table-exh th {
+            padding: 2px;
+            font-size: 16px;
+        }
+
+        .table-exh td {
+            font-size: 14px;
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+
+        .h3-title {
+            font-size: 14px;
         }
     }
 

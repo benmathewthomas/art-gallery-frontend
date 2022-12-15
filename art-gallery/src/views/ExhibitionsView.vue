@@ -54,4 +54,10 @@ export default {
     margin-bottom: 50px;
     margin:auto;
   }
+
+  @media only screen and (max-width: 600px) {
+    .exhibitions {
+      width: 95%;
+    }
+  }
 </style>

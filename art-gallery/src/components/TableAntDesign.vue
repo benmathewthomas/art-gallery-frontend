@@ -49,6 +49,7 @@ export default {
                     title: 'Description',
                     align: 'center',
                     sorter: (a, b) => a.description.localeCompare(b.description),
+                    responsive: ["sm"],
                     dataIndex: 'description',
                     key: 'description',
                 },
@@ -72,6 +73,7 @@ export default {
                     ],
                     filterMultiple: false,
                     onFilter: (a, b) => b.startDate.indexOf(a) == 0,
+                    responsive: ["md"],
                     dataIndex: 'startDate',
                     key: 'startDate'
                 },
@@ -95,6 +97,7 @@ export default {
                     ],
                     filterMultiple: false,
                     onFilter: (a, b) => b.startDate.indexOf(a) == 0,
+                    responsive: ["md"],
                     dataIndex: 'endDate',
                     key: 'endDate'
                 }
@@ -174,6 +177,8 @@ export default {
             padding-bottom: 1px;
             padding-left: 1px;
             padding-right: 1px;
+            max-height: 120px;
+            max-width: 100px;
         }
     }
 

@@ -202,4 +202,33 @@
         width: calc(24px + 6 * (100vw - 320px) / 1040);
     }
 
+    @media only screen and (max-width: 600px) {
+        .img-exh {
+            padding-top: 1px;
+            padding-bottom: 1px;
+            padding-left: 1px;
+            padding-right: 1px;
+            max-height: 120px;
+        }
+
+        .main-div {
+            margin: 0px;
+        }
+
+        .table-art th {
+            padding: 2px;
+            font-size: 16px;
+        }
+
+        .table-data {
+            font-size: 14px;
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+
+        .h3-title {
+            font-size: 14px;
+        }
+    }
+
 </style>
