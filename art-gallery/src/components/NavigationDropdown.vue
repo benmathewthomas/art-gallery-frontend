@@ -1,13 +1,13 @@
 <template>
     <div>
         <a-menu v-model:selectedKeys="current" mode="horizontal">
-            <a-menu-item>          
+            <a-menu-item>
                 <router-link to="/" class="nav-link">
                     <span>Home</span>
                 </router-link>
             </a-menu-item>
             <a-sub-menu>
-                <template #title>                        
+                <template #title>
                     <router-link to="/artworks" class="nav-link">
                         <span>Artworks</span>
                     </router-link>
@@ -25,7 +25,7 @@
                 <a-menu-item key="setting:3">Browse by Price</a-menu-item>
             </a-sub-menu>
             <a-sub-menu>
-                <template #title>                        
+                <template #title>
                     <router-link to="/culture" class="nav-link">
                         <span>Art & Culture</span>
                     </router-link>
@@ -47,7 +47,7 @@
                 <a-menu-item key="setting:1">Current Exhibitions</a-menu-item>
                 <a-menu-item key="setting:2">Past Exhibitions</a-menu-item>
             </a-sub-menu>
-        </a-menu> 
+        </a-menu>
     </div>
 </template>
 
@@ -58,7 +58,7 @@ export default {
     name: "NavigationDropdown",
     setup() {
         const current = ref<String>(['mail']);
-        
+
         return {
             current,
         };
@@ -67,7 +67,7 @@ export default {
 
 
 </script>
-    
+
 <style scoped>
     .nav-link {
         font-size: 20px;

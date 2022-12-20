@@ -19,7 +19,7 @@ export default ({
 </script>
 
 <style scoped>
-    :deep .container {
+    :deep(.container) {
         text-align: center;
     }
 </style>

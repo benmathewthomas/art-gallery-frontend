@@ -46,10 +46,12 @@ export default {
 
 <style scoped>
     .alerts {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: var(--font--base);
       font-style: italic;
       margin: 25px;
       font-size: large;
-      color: rgb(36, 36, 36);
+      color: var(--color--black);
     }
+
+    
 </style>

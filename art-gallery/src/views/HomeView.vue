@@ -36,13 +36,13 @@ export default {
     }
 
     .home {
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        font-family: var(--font--base);
         margin: 20px;
         padding-bottom: 50px;
     }
 
     .user-greeting {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: var(--font--base);
       margin: 15px;
       text-align: center;
       font-size: 2em;
