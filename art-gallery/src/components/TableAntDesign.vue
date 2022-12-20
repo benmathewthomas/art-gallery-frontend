@@ -13,7 +13,7 @@
 
 <script>
 export default {
-    
+
     name: "TableAntDesign",
     props: {
         exhibitions: {
@@ -34,9 +34,9 @@ export default {
                     dataIndex: 'backgroundImageURL',
                     key: 'backgroundImageURl',
                     customRender: (data) => {
-                        return <img src={data.text} 
+                        return <img src={data.text}
                         style="max-height:200px; width:300px; object-fit:cover"/>
-                    } 
+                    }
                 },
                 {
                     title: 'Name',
@@ -104,7 +104,7 @@ export default {
             ]
         }
     },
-    methods: {  
+    methods: {
         // Compares two dates returning int indicating larger, smaller or equal.
         dateCompare(date1, date2) {
             if (date1 > date2) {
@@ -139,16 +139,16 @@ export default {
     }
 
     .ant-table {
-        color: #343737;
+        color: var(--color--grey-dark);
         padding: 20px;
-        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-family: var(--font--base);
     }
 
     .search-input {
         width: 50%;
         max-width: 800px;
         padding: 10px;
-        border: #565b5c solid 1px;
+        border: var(--color--charcoal) solid 1px;
         margin-bottom: 20px;
         font-size: 16px;
         vertical-align: top;
@@ -166,7 +166,7 @@ export default {
 
     .search-icon svg {
         padding-top: 5px;
-        fill: black;
+        fill: var(--color--black);
         max-width: 28px;
         width: calc(24px + 6 * (100vw - 320px) / 1040);
     }

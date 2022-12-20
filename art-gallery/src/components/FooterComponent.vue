@@ -134,6 +134,7 @@ export default {
             line-height: 180%;
         }
         .footer-links, :deep(.footer-socials) {
+            padding-left: 10px;
             width: 100%;
         }
         :deep(.footer-socials ul) {

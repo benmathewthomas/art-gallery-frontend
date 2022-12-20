@@ -69,7 +69,8 @@
                 cell.innerHTML = item.title;
 
                 cell = row.insertCell(-1);
-                cell.innerHTML = item.description;
+                cell.innerHTML =  item.description;
+                cell.style = "text-align: justify; font-size: 13px;"
 
                 cell = row.insertCell(-1);
                 cell.innerHTML = item.contributingArtists;
@@ -80,7 +81,7 @@
                 cell = row.insertCell(-1);
                 cell.innerHTML = item.yearCreated;
             });
-            table.classList.add("table-data");  
+            table.classList.add("table-data");
             this.tableHover();
         },
 
@@ -94,12 +95,12 @@
 
                 var highlightRow = function(row) {
                     return function() {
-                        row.style = "background-color:#f5f5f5";
+                        row.style = "background-color:var(--color--grey-light)";
                     };
                 };
                 var removeHighlight = function(row) {
                     return function() {
-                        row.style = "background-color:#ffffff";
+                        row.style = "background-color:var(--color--white)";
                     }
                 }
                 currentRow.onmouseover = highlightRow(currentRow);
@@ -160,26 +161,26 @@
     }
 
     .table-art th {
-        color:#343737;
-        background-color: #aad6c7;
+        color:var(--color--charcoal);
+        background-color: var(--color--primary-hover-light);
         padding-top: 20px;
         padding-bottom: 20px;
     }
 
     .table-data {
-        color:#343737;
+        color:var(--color--charcoal);
         padding-top: 20px;
         padding-bottom: 20px;
-        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-family:var(--font--base);
         font-size: 18px;
-        border: 1px solid #dedcdc;;
+        border: 1px solid var(--color--grey);
     }
 
     .search-input {
         width: 50%;
         max-width: 800px;
         padding: 10px;
-        border: #565b5c solid 1px;
+        border: var(--color--grey-med) solid 1px;
         margin-bottom: 20px;
         font-size: 16px;
         vertical-align: top;
@@ -197,7 +198,7 @@
 
     .search-icon svg {
         padding-top: 5px;
-        fill: black;
+        fill: var(--color--black);
         max-width: 28px;
         width: calc(24px + 6 * (100vw - 320px) / 1040);
     }
@@ -224,6 +225,7 @@
             font-size: 14px;
             padding-left: 2px;
             padding-right: 2px;
+            overflow: auto;
         }
 
         .h3-title {

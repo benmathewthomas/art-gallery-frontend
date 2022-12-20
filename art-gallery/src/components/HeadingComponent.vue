@@ -17,9 +17,9 @@
     .heading {
         margin-top: 50px;
         text-align: center;
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: var(--font--base);
         font-size: 40px;
-        color: #343737;
+        color: var(--color--charcoal);
         letter-spacing: 5px;
     }
 

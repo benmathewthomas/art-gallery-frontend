@@ -157,7 +157,7 @@ export default {
         margin-top: 10px;
     }
 
-    .nav-site, .nav-menu, .nav-tools {
+    .nav-site, .nav-menu, .nav-tools, .auth-tools {
         display: inline-flex;
         margin-top: calc(4px + (100vw - 320px) / 1040);
     }
@@ -165,10 +165,14 @@ export default {
     .nav-site, .nav-menu {
         text-align: left;
         position: relative;
+        cursor:pointer;
     }
 
-    .nav-tools-menu {
+    .login-nav-button, .logout-nav-button {
+        color: var(--color--primary);
         cursor:pointer;
+        text-transform:uppercase;
+        font-weight: var(--font--semibold);
     }
 
     .nav-home-icon, .nav-tools-menu svg{
@@ -182,7 +186,7 @@ export default {
         border-bottom: 2px solid;
     }
 
-    .nav-link:hover {
+    .nav-link:hover, .login-nav-button:hover, .logout-nav-button:hover {
         color:var(--color--turquoise-light-hover);
         transition: .1s;
         transition-delay: 0;
@@ -203,6 +207,14 @@ export default {
 
     .nav-menu {
         font-size: calc(18px + 3 * (100vw - 320px) / 1040);
+    }
+
+    .auth-tools {
+        font-size: calc(12px + 3 * (100vw - 320px) / 1040);
+    }
+
+    .auth-tools .user-name {
+        margin-right: 5px;
     }
 
     .nav-menu-dropdown {
@@ -252,12 +264,13 @@ export default {
         fill:var(--color--turquoise-light);
     }
 
-    :deep(.container) {
+    .login-box {
+        position: absolute;
         text-align: right;
     }
 
     @media only screen and (max-width: 600px) {
-        .nav-link, .auth-tools{
+        .nav-menu{
             display: none;
         }
 
@@ -267,6 +280,21 @@ export default {
 
         .nav-menu-dropdown {
             font-size: 1.6em;
+        }
+
+        .login-box {
+        position:inherit;
+        }
+
+        :deep(.container) {
+            margin: none;
+            text-align: right;
+            max-width: 600px;
+        }
+
+        :deep(.card) {
+            width: 95%;
+            max-width: 600px;
         }
     }
 </style>

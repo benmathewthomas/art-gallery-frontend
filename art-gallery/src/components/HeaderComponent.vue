@@ -41,7 +41,7 @@ export default {
     .logo-text{
         font-size:44px;
         font-family: var(--font--base);
-        font-weight: var(--font--bold);
+        font-weight: var(--font--semibold);
         fill:var(--color--grey-light);
     }
 

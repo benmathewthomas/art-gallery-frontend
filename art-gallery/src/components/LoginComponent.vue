@@ -1,7 +1,6 @@
 <template>
     <div class="container">
         <div class="card">
-            <!-- <h3>Log in</h3> -->
             <Form name="login-form" @submit="handleLogin">
                 <p class="login-text">Enter your login details to sign in, or click 'Sign up' to create an account.</p>
 
@@ -74,7 +73,7 @@ export default {
         text-align: left;
         max-width: 550px;
         display: inline-block;
-        background-color: #f7f7f7;
+        background-color: var(--color--grey-light);
         border-radius: 8px;
         box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
         padding: 10px 15px 15px;
@@ -90,45 +89,46 @@ export default {
         padding: 5px;
         margin: 10px;
         display: inline-block;
-        border: #bac0c2 solid 1px;
+        border: var(--color--grey-med) solid 1px;
         border-radius: 3px;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: var(--font--base);
         font-size: .75em;
     }
 
     input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
-        outline: #282a2b solid 1px;
+        outline: var(--color--charcoal) solid 1px;
     }
 
     .login-text {
-        color: rgb(36, 36, 36);
-        font-size: .8em;
+        color: var(--color--black);
+        font-size: .9em;
         padding: 0;
         margin: 10px 0 0 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: var(--font--base);
     }
 
     label {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-weight: 700;
+        font-family: var(--font--base);
+        font-weight: var(--font--semibold);
         font-size: .9em;
         margin-left: 15px;
     }
 
     button {
         border: none;
-        background-color: rgb(217, 163, 248);
+        background-color: var(--color--primary);
         padding: 5px 15px;
         margin: 0 15px;
-        font-weight: bold;
+        font-weight: var(--font--semibold);
     }
 
-    .btn-link {
+    button, .btn-link {
+        color: var(--color--white);
         text-decoration: none;
     }
 
     button:hover {
-        background-color: rgb(255, 206, 199);
+        background-color: var(--color--primary-hover);
         text-decoration: underline;
         cursor: pointer;
     }
@@ -139,8 +139,8 @@ export default {
         margin: 0;
     }
     .error-message {
-        font-family: Arial, Helvetica, sans-serif;
-        color: rgb(219, 26, 26);
+        font-family: var(--font--base);
+        color: var(--color--orange-dark);
     }
 
     @media only screen and (max-width: 600px) {

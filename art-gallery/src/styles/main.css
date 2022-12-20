@@ -49,8 +49,7 @@
     --font--normal:normal;
     --font--semibold:600;
     --font--bold:800;
-    --font--base: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    --font--arial: Arial,sans-serif;
+    --font--base: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
    }
 
    /* Always display scroll bars except in mobile view */
