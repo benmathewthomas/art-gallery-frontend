@@ -13,7 +13,6 @@ async function Login(email, password) {
     };
 
     await fetch('/api/users/login/', request)
-        // .then(response => response.json())
         .then(handleLoginResponse)
         .then(data => {
             if (data.item2) {
@@ -39,7 +38,6 @@ function handleLoginResponse(response) {
                 // auto logout if 401 response returned from api
                 Logout();
             }
-
             const error = (data && data.message) || response.statusText;
             return Promise.reject(error);
         }

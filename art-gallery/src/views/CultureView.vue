@@ -7,7 +7,7 @@
     <FeaturedArtwork />
   </div>
 </template>
-  
+
 <script>
 import FeaturedArtist from '@/components/FeaturedArtist.vue';
 import FeaturedArtwork from '@/components/FeaturedArtwork.vue';
@@ -22,4 +22,3 @@ export default {
 },
 }
 </script>
-  

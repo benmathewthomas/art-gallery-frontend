@@ -36,7 +36,6 @@ export default {
                 this.dataLoaded = true;
             });
         },
-
         // Update data on table item added.
         updateData() {
             this.fetchExhibitions();

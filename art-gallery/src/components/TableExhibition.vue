@@ -29,7 +29,7 @@
                     </tr>
                 </tbody>
             </table>
-            <button v-on:click="showInputs" class="plus-button" v-if="account.user">+</button>
+            <button v-on:click="showInputs" class="plus-button" v-if="isAdmin()">+</button>
         </div>
 
         <div class="entry-div" v-if="entryClicked">
@@ -71,6 +71,11 @@ export default {
         }
     },
     methods: {
+        isAdmin() {
+            if (this.account.user) {
+                    return this.account.user.role == "Admin";
+            }
+        },
         // Filter table.
         filterTable() {
             return this.exhibitions.filter(d => {
@@ -88,7 +93,7 @@ export default {
 
         // Add entry to database.
         async addEntry() {
-            // Check for authentication credentials
+            // Check for authentication credentials - doesn't check if the user is an admin, just that there is a user
             if (!this.account.user)
             {
                 console.log('Error: not logged in')

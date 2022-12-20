@@ -142,47 +142,48 @@ export default ({
     input[type=text], input[type=email], input[type=password] {
         width: 80%;
         padding: 10px;
-        margin: 2% 5%;
+        margin: 2% 10%;
         display: inline-block;
-        border: #565b5c solid 1px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: .8em;
+        border: var(--color--charcoal) solid 1px;
+        font-family: var(--font--base);
+        font-size: .9em;
     }
 
     input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
-        outline: #282a2b solid 2px;
+        outline: var(--color--charcoal) solid 2px;
     }
 
     label {
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: 500;
+        font-family: var(--font--base);
+        font-weight: var(--font--normal);
         font-size: 1em;
         margin-left: 15px;
     }
 
     button {
         border: none;
-        background-color: rgb(247, 53, 27);
+        background-color: var(--color--primary);
         padding: 10px 25px;
         margin: 0 15px;
         font-weight: bold;
+        color: var(--color--white);
     }
 
     button:hover {
-        background-color: rgb(255, 206, 199);
+        background-color: var(--color--primary-hover);
         text-decoration: underline;
         cursor: pointer;
     }
 
     p {
-        font-family: Arial, Helvetica, sans-serif;
-        font-weight: 100;
+        font-family: var(--font--base);
+        font-weight: var(--font--normal);
         font-size: .9em;
         margin: 5px 5px 15px 5px;
     }
 
     .password-prompt, .error-message {
-        font-size: .7em;
+        font-size: .8em;
         padding-left: 20px;
         margin: 0;
     }
