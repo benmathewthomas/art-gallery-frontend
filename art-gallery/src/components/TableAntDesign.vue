@@ -7,11 +7,25 @@
                 :data-source="exhibitions"
                 bordered>
             </a-table>
+            <button v-on:click="showInputs" class="plus-button" v-if="isAdmin()">+</button>
+        </div>
+
+        <div class="entry-div" v-if="entryClicked">
+            <input type="text" v-model="name" class="table-input" placeholder="Enter name..."/>
+            <input type="text" v-model="description" class="table-input" placeholder="Enter description..."/>
+            <input type="text" v-model="backgroundImageURL" class="table-input" placeholder="Enter backgroundImageURL..."/>
+            <!-- Added to match the new model - might be better as a special date input? -->
+            <input type="text" v-model="startDate" class="table-input" placeholder="Enter start date as DD/MM/YYYY..."/>
+            <input type="text" v-model="endDate" class="table-input" placeholder="Enter end date as DD/MM/YYYY..."/>
+            <button v-on:click="addEntry" class="entry-button">Add entry</button>
         </div>
     </div>
 </template>
 
 <script>
+import { postExhibition } from '@/services/ExhibitionService'
+import { mapState } from 'vuex'
+
 export default {
 
     name: "TableAntDesign",
@@ -116,7 +130,44 @@ export default {
             else {
                 return 0;
             }
-        }
+        },
+
+        isAdmin() {
+            if (this.account.user) {
+                    return this.account.user.role == "Admin";
+            }
+        },
+
+        // Show the add entry inputs.
+        showInputs() {
+            if (!this.entryClicked)
+                this.entryClicked = true;
+            else
+                this.entryClicked = false;
+        },
+
+        // Add entry to database.
+        async addEntry() {
+            // Check for authentication credentials - doesn't check if the user is an admin, just that there is a user
+            if (!this.account.user)
+            {
+                console.log('Error: not logged in')
+            }
+            if (this.account.user)
+            {
+                await postExhibition(this.name, this.description, this.backgroundImageURL, this.startDate, this.endDate);
+            }
+
+            if (this.exhibitions.name != "undefined")
+            {
+                this.$emit('updateData');
+            }
+        },
+    },
+    computed: {
+        ...mapState({
+            account: state => state.account
+        })
     }
 }
 </script>
@@ -169,6 +220,31 @@ export default {
         fill: var(--color--black);
         max-width: 28px;
         width: calc(24px + 6 * (100vw - 320px) / 1040);
+    }
+
+    .plus-button {
+        font-size: 25px;
+        padding-left: 12px;
+        padding-right: 12px;
+        float:right;
+    }
+
+    .entry-button {
+        padding: 10px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .table-input {
+        padding:10px;
+        font-size: 18px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+    }
+
+    .entry-div {
+        float:left;
+        width: 100%;
     }
 
     @media only screen and (max-width: 600px) {
