@@ -15,15 +15,15 @@
                     <br>
                     <span>
                         Phone:
-                        <a href="tel://(03) 1234 5678">(03) 1234 5678</a>
+                        <a href="tel://(03) 9244 6333">(03) 9244 6333</a>
                     </span>
                     <span>
                         World:
-                        <a href="tel://+61 1234 5678">+61 1234 5678</a>
+                        <a href="tel://+61 3 9244 6333">+61 3 9244 6333</a>
                     </span>
                     <br>
-                    <span>123 Main St Suburb</span>
-                    <span>State 3000 Australia</span>
+                    <span>221 Burwood Highway, Burwood</span>
+                    <span>VIC 3125 Australia</span>
                 </p>
             </div>
             <div class="footer-socials">
@@ -120,8 +120,8 @@ export default {
         fill:var(--color--youtube);
     }
 
-    :deep(.pinterist:hover) {
-        fill:var(--color--pinterist);
+    :deep(.linkedin:hover) {
+        fill:var(--color--linkedin);
     }
 
     @media only screen and (max-width: 600px) {

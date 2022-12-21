@@ -1,10 +1,10 @@
 <template>
     <div class="main-div">
         <div class="table-div">
-            <a-table 
+            <a-table
                 class="ant-table"
-                :columns="columns" 
-                :data-source="exhibitions" 
+                :columns="columns"
+                :data-source="exhibitions"
                 bordered>
             </a-table>
         </div>

@@ -1,6 +1,6 @@
 <template>
-    <div>
-        <a-menu v-model:selectedKeys="current" mode="horizontal">
+    <div class="nav-site">
+        <a-menu v-model:selectedKeys="current" mode="horizontal"  class="nav-menu" disabledOverflow="true">
             <a-menu-item>
                 <router-link to="/" class="nav-link">
                     <span>Home</span>
@@ -13,16 +13,16 @@
                     </router-link>
                 </template>
                 <a-menu-item key="setting:1">
-                    <router-link to="/artworks">
+                    <router-link to="/artworks" class="nav-sub">
                         <span>Artworks Collection</span>
                     </router-link>
                 </a-menu-item>
                 <a-menu-item key="setting:2">
-                    <router-link to="/artworkofday">
+                    <router-link to="/artworkofday" class="nav-sub">
                         <span>Artwork of the Day</span>
                     </router-link>
                 </a-menu-item>
-                <a-menu-item key="setting:3">Browse by Price</a-menu-item>
+                <a-menu-item key="setting:3"><span class="nav-sub">Browse by Price</span></a-menu-item>
             </a-sub-menu>
             <a-sub-menu>
                 <template #title>
@@ -30,13 +30,13 @@
                         <span>Art & Culture</span>
                     </router-link>
                 </template>
-                    <a-menu-item key="setting:1">Symbols</a-menu-item>
+                    <a-menu-item key="setting:1"><span class="nav-sub">Symbols</span></a-menu-item>
                     <a-menu-item key="setting:2">
-                        <router-link to="/artistofday">
+                        <router-link to="/artistofday" class="nav-sub">
                             <span>Artist of the Day</span>
                         </router-link>
                     </a-menu-item>
-                    <a-menu-item key="setting:3">Aboriginal Art Facts</a-menu-item>
+                    <a-menu-item key="setting:3"><span class="nav-sub">Aboriginal Art Facts</span></a-menu-item>
             </a-sub-menu>
             <a-sub-menu>
                 <template #title>
@@ -44,8 +44,8 @@
                         <span>Exhibitions</span>
                     </router-link>
                 </template>
-                <a-menu-item key="setting:1">Current Exhibitions</a-menu-item>
-                <a-menu-item key="setting:2">Past Exhibitions</a-menu-item>
+                <a-menu-item key="setting:1"><span class="nav-sub">Current Exhibitions</span></a-menu-item>
+                <a-menu-item key="setting:2"><span class="nav-sub">Past Exhibitions</span></a-menu-item>
             </a-sub-menu>
         </a-menu>
     </div>
@@ -54,8 +54,9 @@
 <script>
 import { ref } from 'vue';
 
+
 export default {
-    name: "NavigationDropdown",
+    name: "NavigationAntDesign",
     setup() {
         const current = ref<String>(['mail']);
 
@@ -64,15 +65,16 @@ export default {
         };
   },
 }
-
-
 </script>
 
 <style scoped>
-    .nav-link {
-        font-size: 20px;
-        padding:15px;
+    .nav-sub {
+        font-size: 16px;
     }
-
-    a { color: inherit; }
+    .nav-sub:hover {
+        color:var(--color--turquoise-light-hover);
+        transition: .1s;
+        transition-delay: 0;
+        border-bottom: 2px solid;
+    }
 </style>

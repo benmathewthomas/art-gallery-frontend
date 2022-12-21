@@ -96,8 +96,8 @@ export default {
         fill:var(--color--youtube);
     }
 
-    :deep(.pinterist:hover) {
-        fill:var(--color--pinterist);
+    :deep(.linkedin:hover) {
+        fill:var(--color--linkedin);
     }
 
     @media only screen and (max-width: 600px) {
