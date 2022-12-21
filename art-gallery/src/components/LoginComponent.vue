@@ -67,6 +67,8 @@ export default {
         margin-left: 5%;
         margin-right: 5%;
         margin-bottom: 15px;
+        position: absolute;
+        z-index: 1000;
     }
 
     .card {
@@ -75,7 +77,8 @@ export default {
         display: inline-block;
         background-color: var(--color--grey-light);
         border-radius: 8px;
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
+        border: 1px solid var(--color--grey);
+        box-shadow: 1px 4px 4px rgba(0, 0, 0, 0.2);
         padding: 10px 15px 15px;
     }
 

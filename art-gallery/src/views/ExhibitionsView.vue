@@ -1,7 +1,7 @@
 <template v-if="dataLoaded">
   <div class="exhibitions">
     <HeadingComponent title="EXHIBITIONS"/>
-    <TableAntDesign :exhibitions="this.exhibitions"/>
+    <TableAntDesign :exhibitions="this.exhibitions" v-on:updateData="updateData()"/>
     <TableExhibition :exhibitions="this.exhibitions" v-on:updateData="updateData()"/>
   </div>
 </template>
@@ -36,11 +36,13 @@ export default {
                 this.dataLoaded = true;
             });
         },
+
         // Update data on table item added.
         updateData() {
             this.fetchExhibitions();
         }
     },
+
     mounted() {
         this.fetchExhibitions();
     },

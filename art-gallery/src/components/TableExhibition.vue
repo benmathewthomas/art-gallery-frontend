@@ -190,7 +190,7 @@ export default {
     }
 
     .plus-button {
-        font-size: 40px;
+        font-size: 25px;
         padding-left: 12px;
         padding-right: 12px;
         float:right;
