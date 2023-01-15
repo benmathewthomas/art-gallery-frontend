@@ -13,7 +13,7 @@
         <div class="entry-div" v-if="entryClicked">
             <input type="text" v-model="name" class="table-input" placeholder="Enter name..."/>
             <input type="text" v-model="description" class="table-input" placeholder="Enter description..."/>
-            <input type="text" v-model="backgroundImageURL" class="table-input" placeholder="Enter backgroundImageURL..."/>
+            <input type="text" v-model="backgroundImageUrl" class="table-input" placeholder="Enter backgroundImageURL..."/>
             <!-- Added to match the new model - might be better as a special date input? -->
             <input type="text" v-model="startDate" class="table-input" placeholder="Enter start date as DD/MM/YYYY..."/>
             <input type="text" v-model="endDate" class="table-input" placeholder="Enter end date as DD/MM/YYYY..."/>
@@ -45,8 +45,8 @@ export default {
                 {
                     title: 'Image',
                     align: 'center',
-                    dataIndex: 'backgroundImageURL',
-                    key: 'backgroundImageURl',
+                    dataIndex: 'backgroundImageUrl',
+                    key: 'backgroundImageUrl',
                     customRender: (data) => {
                         return <img src={data.text}
                         style="max-height:200px; width:300px; object-fit:cover"/>

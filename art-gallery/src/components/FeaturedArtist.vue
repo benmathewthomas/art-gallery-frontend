@@ -1,7 +1,7 @@
 <template v-if="dataLoaded">
-    <CardComponent 
-        :subheading="artistOfDay.displayName" 
-        :imageURL="artistOfDay.profileImageURL"
+    <CardComponent
+        :subheading="artistOfDay.displayName"
+        :imageURL="artistOfDay.profileImageUrl"
         :detail1="(`Born: ` + artistOfDay.yearOfBirth + `, ` + artistOfDay.placeOfBirth)"/>
 </template>
 

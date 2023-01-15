@@ -21,7 +21,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="item in filterTable()" :key="item">
-                        <td><img :src="item.backgroundImageURL" class="img-exh"/></td>
+                        <td><img :src="item.backgroundImageUrl" class="img-exh"/></td>
                         <td><h3 class="h3-title">{{ item.name }}</h3></td>
                         <td class="description">{{ item.description }}</td>
                         <td class="description">{{ item.startDate }}</td>
@@ -35,7 +35,7 @@
         <div class="entry-div" v-if="entryClicked">
             <input type="text" v-model="name" class="table-input" placeholder="Enter name..."/>
             <input type="text" v-model="description" class="table-input" placeholder="Enter description..."/>
-            <input type="text" v-model="backgroundImageURL" class="table-input" placeholder="Enter backgroundImageURL..."/>
+            <input type="text" v-model="backgroundImageUrl" class="table-input" placeholder="Enter backgroundImageUrl..."/>
             <!-- Added to match the new model - might be better as a special date input? -->
             <input type="text" v-model="startDate" class="table-input" placeholder="Enter start date as DD/MM/YYYY..."/>
             <input type="text" v-model="endDate" class="table-input" placeholder="Enter end date as DD/MM/YYYY..."/>
@@ -65,7 +65,7 @@ export default {
             entryClicked: false,
             name: "",
             description: "",
-            backgroundImageURL: "",
+            backgroundImageUrl: "",
             startDate: '',
             endDate: ''
         }
@@ -100,7 +100,7 @@ export default {
             }
             if (this.account.user)
             {
-                await postExhibition(this.name, this.description, this.backgroundImageURL, this.startDate, this.endDate);
+                await postExhibition(this.name, this.description, this.backgroundImageUrl, this.startDate, this.endDate);
             }
 
             if (this.exhibitions.name != "undefined")

@@ -6,6 +6,6 @@ export async function getArtworks() {
 
 // Fetch artwork of the day.
 export async function getArtworkOfTheDay() {
-  const response = await fetch('/api/artwork/of-the-day')
+  const response = await fetch('/api/artworks/of-the-day')
   return await response.json();
 }

@@ -62,7 +62,7 @@
                 var row = table.insertRow(-1);
 
                 var cell = row.insertCell(-1);
-                cell.innerHTML = "<img src=" + item.primaryImageURL + " width=200px/>";
+                cell.innerHTML = "<img src=" + item.primaryImageUrl + " width=200px/>";
                 cell.style = "text-align: center; width: 200px; padding: 15px;"
 
                 cell = row.insertCell(-1);
