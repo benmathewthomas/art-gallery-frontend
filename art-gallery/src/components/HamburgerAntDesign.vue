@@ -1,87 +1,74 @@
 <template>
     <div>
-        <ul class="nav-menu-dropdown">
-            <li>
-                <router-link to="/" class="nav-link nav-link-1">
-                    <span>Home</span>
-                </router-link>
-            </li>
-            <li>
-            </li>
-            <li>
+        <a-menu v-model:selectedKeys="current" class="nav-menu-dropdown" mode="inline">
+            <a-sub-menu>
+                <template #title>
+                    <router-link to="/artworks" class="nav-link">
+                        <span>Artworks</span>
+                    </router-link>
+                </template>
+                <a-menu-item key="setting:1">
+                    <router-link to="/artworkofday" class="nav-sub">
+                        <span>Artwork of the Day</span>
+                    </router-link>
+                </a-menu-item>
+                <a-menu-item key="setting:2"><span class="nav-sub">Browse by Price</span></a-menu-item>
+            </a-sub-menu>
+            <a-menu-item>
                 <div class="nav-tools-login" v-if="!account.user">
-                    <router-link to="/login" class="nav-link nav-link-3">
+                    <router-link to="/login" class="nav-link">
                         <span>Log In</span>
                     </router-link>
                 </div>
-            </li>
-            <li>
-                <router-link to="/culture" class="nav-link nav-link-1">
-                    <span>Art & Culture</span>
-                </router-link>
-            </li>
-            <li>
-                <router-link to="/artworks" class="nav-link nav-link-2">
-                    <span>Artworks</span>
-                </router-link>
-            </li>
-            <li>
+            </a-menu-item>
+            <a-sub-menu>
+                <template #title>
+                    <router-link to="/culture" class="nav-link">
+                        <span>Art & Culture</span>
+                    </router-link>
+                </template>
+                    <a-menu-item key="setting:1"><span class="nav-sub">Symbols</span></a-menu-item>
+                    <a-menu-item key="setting:2">
+                        <router-link to="/artistofday" class="nav-sub">
+                            <span>Artist of the Day</span>
+                        </router-link>
+                    </a-menu-item>
+                    <a-menu-item key="setting:3"><span class="nav-sub">Aboriginal Art Facts</span></a-menu-item>
+            </a-sub-menu>
+            <a-menu-item>
                 <div class="nav-tools-signup" v-if="!account.user">
-                    <router-link to="/signup" class="nav-link nav-link-3">
+                    <router-link to="/signup" class="nav-link">
                         <span>Sign Up</span>
                     </router-link>
                 </div>
-            </li>
-            <li>
-                <span class="nav-sub nav-link-1">Symbols</span>
-            </li>
-            <li>
-                <router-link to="/artworks" class="nav-sub nav-link-2">
-                    <span>Artworks Collection</span>
-                </router-link>
-            </li>
-            <li>
-            </li>
-            <li>
-                <router-link to="/artistofday" class="nav-sub nav-link-1">
-                    <span>Artist of the Day</span>
-                </router-link>
-            </li>
-            <li>
-                <router-link to="/artworkofday" class="nav-sub nav-link-2">
-                    <span>Artwork of the Day</span>
-                </router-link>
-            </li>
-            <li>
-            </li>
-            <li>
-                <span class="nav-sub nav-link-1">Aboriginal Art Facts</span>
-            </li>
-            <li>
-                <span class="nav-sub nav-link-2">Browse by Price</span>
-            </li>
-            <li></li>
-            <li>
-                <router-link to="/exhibition" class="nav-link nav-link-1">
-                    <span>Exhibitions</span>
-                </router-link>
-            </li>
-            <li></li>
-            <li></li>
-            <li><span class="nav-sub nav-link-1">Current Exhibitions</span></li>
-            <li></li>
-            <li></li>
-            <li><span class="nav-sub nav-link-1">Past Exhibitions</span></li>
-        </ul>
+            </a-menu-item>
+            <a-sub-menu>
+                <template #title>
+                    <router-link to="/exhibition" class="nav-link">
+                        <span>Exhibitions</span>
+                    </router-link>
+                </template>
+                <a-menu-item key="setting:1"><span class="nav-sub">Current Exhibitions</span></a-menu-item>
+                <a-menu-item key="setting:2"><span class="nav-sub">Past Exhibitions</span></a-menu-item>
+            </a-sub-menu>
+        </a-menu>
     </div>
 </template>
 
 
 <script>
+import { ref } from 'vue';
 import { mapState } from 'vuex';
 
 export default {
     name: "HamburgerAntDesign",
+    setup() {
+        const current = ref<String>(['mail']);
+
+        return {
+            current,
+        };
+    },
     computed: {
         ...mapState({
             account: state => state.account
@@ -89,9 +76,21 @@ export default {
     }
 }
 </script>
-<style>
+<style scoped>
+    .nav-sub:hover {
+        color:var(--color--turquoise-light-hover);
+        transition: .1s;
+        transition-delay: 0;
+        border-bottom: 2px solid;
+    }
+    .nav-menu-dropdown {
+        display: grid;
+        grid-template-columns: max-content auto;
+    }
     .nav-sub {
-        font-size: smaller;
-        padding-left: 30px;
+        font-size: calc(12px + 2 * (100vw - 320px) / 1040);
+    }
+    .ant-menu::before {
+        content: none;
     }
 </style>

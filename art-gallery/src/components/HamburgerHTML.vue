@@ -50,3 +50,23 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    .nav-menu-dropdown {
+        display: grid;
+        grid-template-columns: auto auto 100px;
+    }
+
+    :deep(.nav-link-1) {
+        grid-column-start: 1;
+    }
+
+    :deep(.nav-link-2) {
+        grid-column-start: 2;
+    }
+
+    :deep(.nav-link-3) {
+        grid-column-start: 3;
+        margin-left: 0;
+    }
+</style>

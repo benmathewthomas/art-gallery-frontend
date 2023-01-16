@@ -46,8 +46,8 @@
 </template>
 
 <script>
-import { postExhibition } from '@/services/ExhibitionService'
-import { mapState } from 'vuex'
+import { postExhibition } from '@/services/ExhibitionService';
+import { mapState } from 'vuex';
 
 export default {
     name: 'TableExhibition',
@@ -73,7 +73,7 @@ export default {
     methods: {
         isAdmin() {
             if (this.account.user) {
-                    return this.account.user.role == "Admin";
+                return this.account.user.role == "Admin";
             }
         },
         // Filter table.

@@ -13,7 +13,7 @@
         <div class="entry-div" v-if="entryClicked">
             <input type="text" v-model="name" class="table-input" placeholder="Enter name..."/>
             <input type="text" v-model="description" class="table-input" placeholder="Enter description..."/>
-            <input type="text" v-model="backgroundImageUrl" class="table-input" placeholder="Enter backgroundImageURL..."/>
+            <input type="text" v-model="backgroundImageUrl" class="table-input" placeholder="Enter backgroundImageUrl..."/>
             <!-- Added to match the new model - might be better as a special date input? -->
             <input type="text" v-model="startDate" class="table-input" placeholder="Enter start date as DD/MM/YYYY..."/>
             <input type="text" v-model="endDate" class="table-input" placeholder="Enter end date as DD/MM/YYYY..."/>
@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import { postExhibition } from '@/services/ExhibitionService'
-import { mapState } from 'vuex'
+import { postExhibition } from '@/services/ExhibitionService';
+import { mapState } from 'vuex';
 
 export default {
 
@@ -134,7 +134,7 @@ export default {
 
         isAdmin() {
             if (this.account.user) {
-                    return this.account.user.role == "Admin";
+                return this.account.user.role == "Admin";
             }
         },
 
@@ -155,7 +155,7 @@ export default {
             }
             if (this.account.user)
             {
-                await postExhibition(this.name, this.description, this.backgroundImageURL, this.startDate, this.endDate);
+                await postExhibition(this.name, this.description, this.backgroundImageUrl, this.startDate, this.endDate);
             }
 
             if (this.exhibitions.name != "undefined")

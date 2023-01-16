@@ -14,7 +14,7 @@
             <div class="nav-tools">
                 <div class="auth-tools" title="auth"  v-if="!this.showMenu">
                     <div class="user-name" title="user-name" v-if="account.user">
-                        <span>Signed in as <b>{{ account.user.firstName }}</b></span>
+                        <span>Signed in as <b>{{ account.user.name }}</b></span>
                     </div>
                     <div @click="logout" class="nav-tools-login" title="Logout" v-if="account.user">
                         <span class="login-nav-button">logout</span>
@@ -176,18 +176,7 @@ export default {
     }
 
     :deep(.nav-menu-dropdown) {
-        display: grid;
-        grid-template-columns: auto auto 100px;
         font-size: calc(18px + 4 * (100vw - 320px) / 1040);
-        row-gap: 20px;
-    }
-
-    :deep(.nav-link-1) {
-        grid-column-start: 1;
-    }
-
-    :deep(.nav-link-2) {
-        grid-column-start: 2;
     }
 
     :deep(.nav-link) {
@@ -196,10 +185,6 @@ export default {
         text-transform: lowercase;
     }
 
-    :deep(.nav-link-3) {
-        grid-column-start: 3;
-        margin-left: 0;
-    }
 
     :deep(.nav-tools-signup), :deep(.nav-tools-login) {
         margin-left: 0;
@@ -234,10 +219,6 @@ export default {
 
         :deep(.nav-tools-signup a) {
             color: var(--color--black);
-        }
-
-        :deep(.nav-menu-dropdown) {
-            font-size: 1.6em;
         }
 
         .login-box {
