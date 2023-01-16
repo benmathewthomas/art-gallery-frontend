@@ -21,5 +21,6 @@ export default ({
 <style scoped>
     :deep(.container) {
         text-align: center;
+        position: relative;
     }
 </style>

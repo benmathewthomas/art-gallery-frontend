@@ -13,16 +13,11 @@
                     </router-link>
                 </template>
                 <a-menu-item key="setting:1">
-                    <router-link to="/artworks" class="nav-sub">
-                        <span>Artworks Collection</span>
-                    </router-link>
-                </a-menu-item>
-                <a-menu-item key="setting:2">
                     <router-link to="/artworkofday" class="nav-sub">
                         <span>Artwork of the Day</span>
                     </router-link>
                 </a-menu-item>
-                <a-menu-item key="setting:3"><span class="nav-sub">Browse by Price</span></a-menu-item>
+                <a-menu-item key="setting:2"><span class="nav-sub">Browse by Price</span></a-menu-item>
             </a-sub-menu>
             <a-sub-menu>
                 <template #title>
@@ -70,6 +65,7 @@ export default {
 <style scoped>
     .nav-sub {
         font-size: 16px;
+        padding-left: 0;
     }
     .nav-sub:hover {
         color:var(--color--turquoise-light-hover);

@@ -15,6 +15,6 @@ export default createStore({
   },
   modules: {
     alert,
-        account
+    account
   }
 })

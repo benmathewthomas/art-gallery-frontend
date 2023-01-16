@@ -1,5 +1,8 @@
 <template>
     <footer>
+        <br />
+        <br />
+        <br />
         <div class="footer-component">
             <div class="footer-links">
                 <ul class="footer-nav">
