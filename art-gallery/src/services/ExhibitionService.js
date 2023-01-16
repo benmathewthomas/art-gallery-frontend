@@ -1,3 +1,5 @@
+import { authHeader } from '@/services/AuthService'
+
 // Fetch exhibitions from database.
 export async function getExhibitions() {
   const response = await fetch('/api/exhibitions')
@@ -6,13 +8,11 @@ export async function getExhibitions() {
 
 // Post exhibition to database.
 export async function postExhibition(name, description, backgroundImageUrl, startDate, endDate) {
-  var token = localStorage.getItem('token');
-  token = token.replace(/^"(.*)"$/, '$1');
   const request = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: "Bearer " + token,
+      Authorization: authHeader()
     },
     body: JSON.stringify({ name: name, description: description, backgroundImageUrl: backgroundImageUrl, startDate: startDate, endDate: endDate})
   }

@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { userService } from '@/services/UserService';
 import HomeView from '@/views/HomeView.vue'
 import ArtworksView from '@/views/ArtworksView'
 import CultureView from '@/views/CultureView'
@@ -9,6 +10,7 @@ import ContactView from '@/views/ContactView'
 import LoginView from '@/views/LoginView'
 import ArtistDayView from '@/views/ArtistDayView'
 import ArtworkDayView from '@/views/ArtworkDayView'
+import { Date } from 'core-js'
 
 const routes = [
   {
@@ -57,7 +59,6 @@ const routes = [
     component: ArtworkDayView
   },
   {
-    // Currently restricted view for auth testing
     path: '/contact',
     name: 'contact',
     component: ContactView
@@ -68,5 +69,17 @@ const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  // Check if there is a user logged in
+  if (JSON.parse(localStorage.getItem('user')) != null) {
+    // If token is expired log out
+    const expired = JSON.parse(localStorage.getItem('user')).expiry;
+    if (expired * 1000 - Date.now() < 0) {
+        userService.Logout();
+    }
+  }
+  next();
+});
 
 export default router

@@ -1,3 +1,5 @@
+import VueJwtDecode from 'vue-jwt-decode';
+
 // Service to handle logging in and out
 export const userService = {
     Login,
@@ -15,10 +17,15 @@ async function Login(email, password) {
     await fetch('/api/users/login/', request)
         .then(handleLoginResponse)
         .then(data => {
-            if (data.item2) {
-                localStorage.setItem('user', JSON.stringify(data.item1));
-                localStorage.setItem('token', JSON.stringify(data.item2));
-            }
+            const decoded = VueJwtDecode.decode(data);
+            localStorage.setItem('user',
+            JSON.stringify({
+                token: data,
+                name: decoded.given_name,
+                expiry: decoded.exp,
+                role: decoded.role
+            })
+            );
             return data
         })
 }
@@ -26,7 +33,6 @@ async function Login(email, password) {
 function Logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('user');
-    localStorage.removeItem('token');
     location.reload(true);
 }
 

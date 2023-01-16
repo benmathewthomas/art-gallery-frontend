@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <HeadingComponent title="Welcome to XYZ Gallery"/>
-    <div class="user-greeting" v-if="account.user"><span>Hi {{account.user.firstName}}!</span></div>
+    <div class="user-greeting" v-if="account.user"><span>Hi {{ account.user.name }}!</span></div>
     <div class="home-banner">
       <img src="@/assets/img/emerging_artists.avif" alt="Emerging Artists Exhibition banner">
     </div>
