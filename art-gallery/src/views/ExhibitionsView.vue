@@ -83,6 +83,7 @@ export default {
     width: 70%;
     margin-bottom: 50px;
     margin:auto;
+    margin-bottom: 110px;
   }
 
   @media only screen and (max-width: 600px) {

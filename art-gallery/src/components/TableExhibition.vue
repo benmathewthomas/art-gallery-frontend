@@ -192,14 +192,14 @@ export default {
         padding-right: 12px;
         float:right;
         margin-top: 10px;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
 
     .entry-button {
         padding: 10px;
         font-size: 18px;
         font-weight: bold;
-        margin-bottom: 50px;
+        margin-bottom: 40px;
     }
 
     .table-input {
