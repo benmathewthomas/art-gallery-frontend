@@ -164,7 +164,7 @@ export default {
         max-width: 800px;
         padding: 10px;
         border: #565b5c solid 1px;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
         font-size: 16px;
         vertical-align: top;
     }
@@ -192,7 +192,7 @@ export default {
         padding-right: 12px;
         float:right;
         margin-top: 10px;
-        margin-bottom: 20px;
+        margin-bottom: 40px;
     }
 
     .entry-button {
