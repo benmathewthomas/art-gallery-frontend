@@ -42,23 +42,39 @@
                 <a-menu-item key="setting:1"><span class="nav-sub">Current Exhibitions</span></a-menu-item>
                 <a-menu-item key="setting:2"><span class="nav-sub">Past Exhibitions</span></a-menu-item>
             </a-sub-menu>
+            <a-sub-menu v-if="isAdmin()">
+                <template #title>
+                    <a href="https://localhost:7194/swagger/index.html">swagger</a>
+                </template>
+            </a-sub-menu>
         </a-menu>
     </div>
 </template>
 
 <script>
 import { ref } from 'vue';
-
+import { mapState } from 'vuex';
 
 export default {
     name: "NavigationAntDesign",
-    setup() {
+    methods: {
+        setup() {
         const current = ref<String>(['mail']);
-
         return {
             current,
         };
-  },
+    },
+        isAdmin() {
+            if (this.account.user) {
+                return this.account.user.role == "Admin";
+            }
+        }
+    },
+    computed: {
+        ...mapState({
+            account: state => state.account
+        })
+    }
 }
 </script>
 
