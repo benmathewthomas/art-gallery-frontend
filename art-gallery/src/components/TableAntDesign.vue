@@ -131,13 +131,11 @@ export default {
                 return 0;
             }
         },
-
         isAdmin() {
             if (this.account.user) {
                 return this.account.user.role == "Admin";
             }
         },
-
         // Show the add entry inputs.
         showInputs() {
             if (!this.entryClicked)
@@ -145,7 +143,6 @@ export default {
             else
                 this.entryClicked = false;
         },
-
         // Add entry to database.
         async addEntry() {
             // Check for authentication credentials - doesn't check if the user is an admin, just that there is a user
@@ -227,19 +224,24 @@ export default {
         padding-left: 12px;
         padding-right: 12px;
         float:right;
+        margin-bottom: 20px;
     }
 
     .entry-button {
         padding: 10px;
         font-size: 18px;
         font-weight: bold;
+        margin-bottom: 50px;
     }
 
     .table-input {
         padding:10px;
-        font-size: 18px;
+        font-size: 16px;
         margin-right: 10px;
         margin-bottom: 20px;
+        border-style: solid;
+        border-color: rgb(146, 146, 146);
+        border-radius: 3px;
     }
 
     .entry-div {

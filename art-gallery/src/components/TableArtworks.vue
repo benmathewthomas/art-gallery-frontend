@@ -46,14 +46,12 @@
             this.getContributingArtists();
             this.fillTableWithData();
         },
-
         // Adds space between artist names.
         getContributingArtists() {
             this.artworks.forEach( item => {
                 item.contributingArtists = item.contributingArtists.join(", ")
             })
         },
-
         // Fill table with data from artwork service.
         fillTableWithData() {
             const table = document.getElementById("table1");
@@ -84,7 +82,6 @@
             table.classList.add("table-data");
             this.tableHover();
         },
-
         // Handles hover effect on table.
         tableHover() {
             var table = document.getElementById("table1");
@@ -107,7 +104,6 @@
                 currentRow.onmouseleave = removeHighlight(currentRow);
             }
         },
-
         // Filter table entries.
         filterTable() {
             var tr, td, input, filter, index, textValue, table;

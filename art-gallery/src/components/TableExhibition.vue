@@ -22,7 +22,7 @@
                 <tbody>
                     <tr v-for="item in filterTable()" :key="item">
                         <td><img :src="item.backgroundImageUrl" class="img-exh"/></td>
-                        <td><h3 class="h3-title">{{ item.name }}</h3></td>
+                        <td class="description">{{ item.name }}</td>
                         <td class="description">{{ item.description }}</td>
                         <td class="description">{{ item.startDate }}</td>
                         <td class="description">{{ item.endDate }}</td>
@@ -82,7 +82,6 @@ export default {
                 return d.name.toUpperCase().indexOf(this.search.toUpperCase()) != -1;
             })
         },
-
         // Show the add entry inputs.
         showInputs() {
             if (!this.entryClicked)
@@ -90,7 +89,6 @@ export default {
             else
                 this.entryClicked = false;
         },
-
         // Add entry to database.
         async addEntry() {
             // Check for authentication credentials - doesn't check if the user is an admin, just that there is a user
@@ -102,7 +100,6 @@ export default {
             {
                 await postExhibition(this.name, this.description, this.backgroundImageUrl, this.startDate, this.endDate);
             }
-
             if (this.exhibitions.name != "undefined")
             {
                 this.$emit('updateData');
@@ -136,7 +133,7 @@ export default {
         padding: 20px;
         background-color:#aad6c7;
         font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        font-size: 22px;
+        font-size: 20px;
     }
 
     .table-exh td, th {
@@ -154,12 +151,12 @@ export default {
     }
 
     .table-exh td {
-        color:#343737;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        font-size: 18px;
-        text-align: center;
+        color:var(--color--charcoal);
+        padding-top: 20px;
+        padding-bottom: 20px;
+        font-family:var(--font--base);
+        font-size: 16px;
+        border: 1px solid var(--color--grey);
     }
 
     .search-input {
@@ -194,19 +191,25 @@ export default {
         padding-left: 12px;
         padding-right: 12px;
         float:right;
+        margin-top: 10px;
+        margin-bottom: 20px;
     }
 
     .entry-button {
         padding: 10px;
         font-size: 18px;
         font-weight: bold;
+        margin-bottom: 50px;
     }
 
     .table-input {
         padding:10px;
-        font-size: 18px;
+        font-size: 16px;
         margin-right: 10px;
         margin-bottom: 20px;
+        border-style: solid;
+        border-color: rgb(146, 146, 146);
+        border-radius: 3px;
     }
 
     .entry-div {
@@ -223,7 +226,7 @@ export default {
 
     .img-exh {
         width: 100%;
-        max-width:400px;
+        max-width:350px;
         min-width:200px;
         max-height: 200px;
         object-fit: cover;
