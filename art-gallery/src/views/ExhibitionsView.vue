@@ -59,13 +59,12 @@ export default {
         // Formats Date object.
         formatDate(dateObject) {
           var date = dateObject.getDate();
-          var month = dateObject.getMonth();
+          var month = dateObject.getMonth() + 1;
           var year = dateObject.getFullYear();
 
           if (date < 10) {
               date = '0' + date;
           }
-
           if (month < 10) {
               month = '0' + month;
           }
