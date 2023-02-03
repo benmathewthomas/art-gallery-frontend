@@ -6,11 +6,11 @@
 
                 <label for="email">Email</label>
                 <p class='error-message'><ErrorMessage name="email" /></p>
-                <Field v-model="email" type="email" placeholder="Enter email" class="form-control" name="email" rules="required" />
+                <Field v-model="email" type="email" placeholder="Email" class="form-control" name="email" rules="required" />
 
                 <label for="password">Password:</label>
                 <p class='error-message'><ErrorMessage name="password" /></p>
-                <Field v-model="password" type="password" placeholder="Enter password" name="password" class="form-control" rules="required"/>
+                <Field v-model="password" type="password" placeholder="Password" name="password" class="form-control" rules="required"/>
 
                 <button type="submit" class="login-submit">Log In</button>
                 <button><router-link to="/signup" class="btn-link">Sign up</router-link></button>
