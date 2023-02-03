@@ -1,8 +1,9 @@
 <template>
     <HeaderComponent />
     <NavigationComponent />
-    <div class="alerts">
-        <div v-if="alert.message" :class="`alert ${alert.type}`">{{alert.message}}</div>
+    <div class="alerts" v-if="alert.message" v-on:click="dismiss" :class="`alert ${alert.type}`">
+        {{alert.message}}
+        <p class="dismiss">Click to dismiss</p>
     </div>
     <router-view />
     <FooterComponent />
@@ -22,6 +23,9 @@ export default {
             })
         },
         methods: {
+            dismiss(){
+                this.clearAlert();
+            },
             ...mapActions({
                 clearAlert: 'alert/clear'
             })
@@ -43,10 +47,24 @@ export default {
 
 <style scoped>
     .alerts {
-      font-family: var(--font--base);
-      font-style: italic;
-      margin: 25px;
-      font-size: large;
-      color: var(--color--black);
+        font-family: var(--font--base);
+        font-style: italic;
+        font-size: medium;
+        color: var(--color--black);
+        position: fixed;
+        right: 20px;
+        bottom: 30px;
+        max-width: 600px;
+        width: 40%;
+        padding: 10px;
+        background-color: rgba(233, 233, 233, 0.95);
+        box-shadow: 5px 5px 3px rgba(0, 0, 0, 0.295);
+        border-radius: 10px;
+        margin: 0 auto;
+    }
+    .dismiss {
+        font-size: small;
+        text-align: right;
+        margin:0;
     }
 </style>
