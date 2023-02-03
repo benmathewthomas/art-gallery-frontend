@@ -20,13 +20,14 @@
                 <Field v-model="user.email" type="email" placeholder="Enter email" name="email" rules="required|valid-email" />
 
                 <label for="password"><b>Password:</b></label>
-                <p class="password-prompt">Password must be at least 8 characters and requires 1 of each of the following: uppercase letter, lowercase letter, number.</p>
+                <p class="password-prompt">Password must be at least 14 and no more than 24 characters long.</p>
                 <p class='error-message'><ErrorMessage name="password" /></p>
-                <Field v-model="user.password" type="password" placeholder="Enter password" name="password" id="password" rules="required|valid-password|min:8"/>
+                <Field v-model="user.password" type="text" placeholder="Enter password" name="password" id="password" /> 
+                <!-- rules="required|min:14|max:24"/> -->
 
                 <label for="passwordConfirmation"><b>Confirm Password:</b></label>
                 <p class='error-message'><ErrorMessage name="passwordConfirmation" /></p>
-                <Field type="password" placeholder="Repeat password" name="passwordConfirmation" id="passwordConfirmation" rules="required|confirmed:@password"/>
+                <Field type="text" placeholder="Repeat password" name="passwordConfirmation" id="passwordConfirmation" rules="required|confirmed:@password"/>
 
                 <button type="button" class="cancel-button" v-on:click="back">Cancel</button>
                 <button type="submit" class="signup-submit" v-on:click="signup">Sign Up</button>
@@ -56,6 +57,14 @@ defineRule("min", (value, [min]) => {
     return true;
 });
 
+defineRule("max", (value, [max]) => {
+    if (value && value.length > max) {
+        return `Should be less than ${max} characters`;
+    }
+
+    return true;
+});
+
 defineRule("confirmed", (value, [other]) => {
     if (value !== other) {
       return `Passwords do not match`;
@@ -74,18 +83,9 @@ defineRule("valid-name", (value) => {
 });
 
 defineRule("valid-email", (value) => {
-    const regex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+    const regex = /^(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)$/i;
     if (!regex.test(value)) {
         return 'This field must be a valid email';
-    }
-
-    return true;
-});
-
-defineRule("valid-password", (value) => {
-    const regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.).*$/;
-    if (!regex.test(value)) {
-        return 'Input a password following the above rules';
     }
 
     return true;
