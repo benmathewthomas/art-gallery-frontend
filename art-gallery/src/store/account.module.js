@@ -15,6 +15,7 @@ const actions = {
                     commit('loginSuccess', user);
 
                     location.reload(true);
+                    router.push('/')
                 },
                 error => {
                     router.push('/login')
