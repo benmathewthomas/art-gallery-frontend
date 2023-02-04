@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <HeadingComponent title="Welcome to XYZ Gallery"/>
+    <HeadingComponent title="Welcome to DDGIT Gallery"/>
     <div class="user-greeting" v-if="account.user"><span>Hi {{ account.user.name }}!</span></div>
     <div class="home-banner">
       <img src="@/assets/img/emerging_artists.avif" alt="Emerging Artists Exhibition banner">

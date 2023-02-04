@@ -1,6 +1,6 @@
 <template>
     <div class="nav-site">
-        <a-menu v-model:selectedKeys="current" mode="horizontal"  class="nav-menu" disabledOverflow="true">
+        <a-menu v-model:selectedKeys="current" mode="horizontal"  class="nav-menu" overflowDisabled=true>
             <a-menu-item>
                 <router-link to="/" class="nav-link">
                     <span>Home</span>
@@ -17,7 +17,10 @@
                         <span>Artwork of the Day</span>
                     </router-link>
                 </a-menu-item>
-                <a-menu-item key="setting:2"><span class="nav-sub">Browse by Price</span></a-menu-item>
+                <a-menu-item key="setting:2">
+                    <router-link to="/artworks" class="nav-link">
+                        <span>List of Artworks</span>
+                    </router-link></a-menu-item>
             </a-sub-menu>
             <a-sub-menu>
                 <template #title>
@@ -39,7 +42,10 @@
                         <span>Exhibitions</span>
                     </router-link>
                 </template>
-                <a-menu-item key="setting:1"><span class="nav-sub">Current Exhibitions</span></a-menu-item>
+                <a-menu-item key="setting:1">
+                    <router-link to="/exhibition" class="nav-link">
+                        <span class="nav-sub">Current Exhibitions</span>
+                    </router-link></a-menu-item>
                 <a-menu-item key="setting:2"><span class="nav-sub">Past Exhibitions</span></a-menu-item>
             </a-sub-menu>
             <a-sub-menu v-if="isAdmin()">
@@ -57,6 +63,11 @@ import { mapState } from 'vuex';
 
 export default {
     name: "NavigationAntDesign",
+    data() {
+        return {
+            current: ""
+        }
+    },
     methods: {
         setup() {
         const current = ref<String>(['mail']);
