@@ -10,6 +10,15 @@
             <button v-on:click="showInputs" class="plus-button" v-if="isAdmin()">+</button>
         </div>
 
+        <div class="post-message" v-if="resultReceived && entryClicked" >
+            <div v-if="success">
+                <h3 class="success-text">{{ this.postResult }}</h3>
+            </div>
+            <div v-else>
+                <h3 class="error-text">{{ this.postResult }}</h3>
+            </div>
+        </div>
+
         <div class="entry-div" v-if="entryClicked">
             <input type="text" v-model="name" class="table-input" placeholder="Enter name..."/>
             <input type="text" v-model="description" class="table-input" placeholder="Enter description..."/>
@@ -41,6 +50,9 @@ export default {
         return {
             search: "",
             entryClicked: false,
+            postResult: "",
+            resultReceived: false,
+            success: false,
             columns: [
                 {
                     title: 'Image',
@@ -152,7 +164,16 @@ export default {
             }
             if (this.account.user)
             {
-                await postExhibition(this.name, this.description, this.backgroundImageUrl, this.startDate, this.endDate);
+                this.postResult = await postExhibition(this.name, this.description, this.backgroundImageUrl, this.startDate, this.endDate);
+
+                if (this.postResult.name == this.name) {
+                    this.postResult = "Your upload has been successful."
+                    this.success = true
+                }
+                else 
+                    this.success = false
+ 
+                this.resultReceived = true
             }
 
             if (this.exhibitions.name != "undefined")
@@ -248,6 +269,19 @@ export default {
         float:left;
         width: 100%;
     }
+
+    .success-text {
+        color:green;
+    }
+
+    .error-text {
+        color:red;
+    }
+
+    .post-message {
+        margin-bottom:30px;
+    }
+
 
     @media only screen and (max-width: 600px) {
         .img-exh {

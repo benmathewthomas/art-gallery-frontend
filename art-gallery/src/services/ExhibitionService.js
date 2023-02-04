@@ -16,13 +16,9 @@ export async function postExhibition(name, description, backgroundImageUrl, star
     },
     body: JSON.stringify({ name: name, description: description, backgroundImageUrl: backgroundImageUrl, startDate: startDate, endDate: endDate})
   }
-  try {
-    await fetch('/api/exhibitions', request)
-    .then(response => response.json())
-    .then(data => { return data });
-  }
-  catch {
-    return false;
-  }
+    let response = await fetch('/api/exhibitions', request)
+    console.log(response)
+    let responseJSON = response.json()
 
+    return responseJSON
 }
