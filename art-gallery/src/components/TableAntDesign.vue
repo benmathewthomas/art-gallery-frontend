@@ -7,7 +7,7 @@
                 :data-source="exhibitions"
                 bordered>
             </a-table>
-            <button v-on:click="showInputs" class="plus-button" v-if="isAdmin()">+</button>
+            <a-button type="primary" size="large" class="plus-button" v-on:click="showInputs" v-if="isAdmin()">+</a-button>
         </div>
 
         <div class="post-message" v-if="resultReceived && entryClicked" >
@@ -20,13 +20,14 @@
         </div>
 
         <div class="entry-div" v-if="entryClicked">
-            <input type="text" v-model="name" class="table-input" placeholder="Enter name..."/>
-            <input type="text" v-model="description" class="table-input" placeholder="Enter description..."/>
-            <input type="text" v-model="backgroundImageUrl" class="table-input" placeholder="Enter backgroundImageUrl..."/>
+            <h2>Add New Exhibition</h2>
+            <input type="text" v-model="this.name" class="table-input" placeholder="Enter name..."/>
+            <input type="text" v-model="this.description" class="table-input" placeholder="Enter description..."/>
+            <input type="text" v-model="this.backgroundImageUrl" class="table-input" placeholder="Enter backgroundImageUrl..."/>
             <!-- Added to match the new model - might be better as a special date input? -->
-            <input type="text" v-model="startDate" class="table-input" placeholder="Enter start date as DD/MM/YYYY..."/>
-            <input type="text" v-model="endDate" class="table-input" placeholder="Enter end date as DD/MM/YYYY..."/>
-            <button v-on:click="addEntry" class="entry-button">Add entry</button>
+            <input type="text" v-model="this.startDate" class="table-input" placeholder="Enter start date as DD/MM/YYYY..."/>
+            <input type="text" v-model="this.endDate" class="table-input" placeholder="Enter end date as DD/MM/YYYY..."/>
+            <a-button type="primary" size="large" v-on:click="addEntry">Add entry</a-button>
         </div>
     </div>
 </template>
@@ -36,7 +37,6 @@ import { postExhibition } from '@/services/ExhibitionService';
 import { mapState } from 'vuex';
 
 export default {
-
     name: "TableAntDesign",
     props: {
         exhibitions: {
@@ -48,6 +48,11 @@ export default {
     },
     data() {
         return {
+            name: "",
+            description: "",
+            backgroundImageUrl: "",
+            startDate: "",
+            endDate: "",
             search: "",
             entryClicked: false,
             postResult: "",
@@ -164,6 +169,7 @@ export default {
             }
             if (this.account.user)
             {
+                console.log(this.name);
                 this.postResult = await postExhibition(this.name, this.description, this.backgroundImageUrl, this.startDate, this.endDate);
 
                 if (this.postResult.name == this.name) {
@@ -241,32 +247,31 @@ export default {
     }
 
     .plus-button {
-        font-size: 25px;
-        padding-left: 12px;
-        padding-right: 12px;
         float:right;
         margin-bottom: 20px;
     }
 
-    .entry-button {
-        padding: 10px;
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 50px;
-    }
-
     .table-input {
-        padding:10px;
+        display: block;
+        padding: 10px;
         font-size: 16px;
         margin-right: 10px;
-        margin-bottom: 20px;
-        border-style: solid;
-        border-color: rgb(146, 146, 146);
+        margin-bottom: 15px;
+        border: 0.5px solid rgb(146, 146, 146);
         border-radius: 3px;
+        width: 100%;
     }
 
     .entry-div {
-        float:left;
+        display:block;
+        background-color: rgb(245, 245, 245);
+        box-shadow: 5px 10px rgb(227, 226, 226);
+        border-radius: 10px;
+        padding:30px;
+        margin-left: auto;
+        margin-right:auto;
+        margin-bottom: 20px;
+        max-width: 500px;
         width: 100%;
     }
 
