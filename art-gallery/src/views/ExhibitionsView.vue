@@ -4,6 +4,7 @@
     <TableAntDesign :exhibitions="this.exhibitions" v-on:updateData="updateData()"/>
     <br>
     <br>
+    <br>
     <TableExhibition :exhibitions="this.exhibitions" v-on:updateData="updateData()"/>
     <br>
     <br>

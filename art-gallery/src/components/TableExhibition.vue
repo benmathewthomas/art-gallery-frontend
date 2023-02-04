@@ -42,6 +42,7 @@
         </div>
 
         <div class="entry-div" v-if="entryClicked">
+            <h2>Add New Exhibition</h2>
             <input type="text" v-model="name" class="table-input" placeholder="Enter name..."/>
             <input type="text" v-model="description" class="table-input" placeholder="Enter description..."/>
             <input type="text" v-model="backgroundImageUrl" class="table-input" placeholder="Enter backgroundImageUrl..."/>
@@ -184,7 +185,7 @@ export default {
         width: 50%;
         max-width: 800px;
         padding: 10px;
-        border: #565b5c solid 1px;
+        border: 1px solid #565b5c;
         margin-bottom: 40px;
         font-size: 16px;
         vertical-align: top;
@@ -220,21 +221,31 @@ export default {
         padding: 10px;
         font-size: 18px;
         font-weight: bold;
-        margin-bottom: 40px;
+        margin-top: 10px;
+        margin-bottom: 20px;
     }
 
     .table-input {
-        padding:10px;
+        display: block;
+        padding: 10px;
         font-size: 16px;
         margin-right: 10px;
-        margin-bottom: 20px;
-        border-style: solid;
-        border-color: rgb(146, 146, 146);
+        margin-bottom: 15px;
+        border: 0.5px solid rgb(146, 146, 146);
         border-radius: 3px;
+        width: 100%;
     }
 
     .entry-div {
-        float:left;
+        display:block;
+        background-color: rgb(245, 245, 245);
+        box-shadow: 5px 10px rgb(227, 226, 226);
+        border-radius: 10px;
+        padding:30px;
+        margin-left: auto;
+        margin-right:auto;
+        margin-bottom: 20px;
+        max-width: 500px;
         width: 100%;
     }
 
