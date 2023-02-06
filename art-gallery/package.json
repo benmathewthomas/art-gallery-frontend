@@ -19,6 +19,7 @@
     "vue": "^3.2.13",
     "vue-jwt-decode": "^0.1.0",
     "vue-router": "^4.0.3",
+    "vue-template-compiler": "^2.7.14",
     "vuex": "^4.0.0",
     "yup": "^0.32.11"
   },

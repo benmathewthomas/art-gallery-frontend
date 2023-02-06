@@ -1,6 +1,9 @@
+
+
+
 <template>
     <div class="nav-site">
-        <a-menu v-model:selectedKeys="current" mode="horizontal"  class="nav-menu" overflowDisabled=true>
+        <a-menu mode="horizontal"  class="nav-menu">
             <a-menu-item>
                 <router-link to="/" class="nav-link">
                     <span>Home</span>
@@ -12,15 +15,16 @@
                         <span>Artworks</span>
                     </router-link>
                 </template>
-                <a-menu-item key="setting:1">
+                <a-menu-item>
                     <router-link to="/artworkofday" class="nav-sub">
                         <span>Artwork of the Day</span>
                     </router-link>
                 </a-menu-item>
-                <a-menu-item key="setting:2">
-                    <router-link to="/artworks" class="nav-link">
+                <a-menu-item>
+                    <router-link to="/artworks" class="nav-sub">
                         <span>List of Artworks</span>
-                    </router-link></a-menu-item>
+                    </router-link>
+                </a-menu-item>
             </a-sub-menu>
             <a-sub-menu>
                 <template #title>
@@ -28,13 +32,17 @@
                         <span>Art & Culture</span>
                     </router-link>
                 </template>
-                    <a-menu-item key="setting:1"><span class="nav-sub">Symbols</span></a-menu-item>
-                    <a-menu-item key="setting:2">
+                    <a-menu-item>
+                        <span class="nav-sub">Symbols</span>
+                    </a-menu-item>
+                    <a-menu-item>
                         <router-link to="/artistofday" class="nav-sub">
                             <span>Artist of the Day</span>
                         </router-link>
                     </a-menu-item>
-                    <a-menu-item key="setting:3"><span class="nav-sub">Aboriginal Art Facts</span></a-menu-item>
+                    <a-menu-item>
+                        <span class="nav-sub">Aboriginal Art Facts</span>
+                    </a-menu-item>
             </a-sub-menu>
             <a-sub-menu>
                 <template #title>
@@ -42,15 +50,18 @@
                         <span>Exhibitions</span>
                     </router-link>
                 </template>
-                <a-menu-item key="setting:1">
-                    <router-link to="/exhibition" class="nav-link">
-                        <span class="nav-sub">Current Exhibitions</span>
-                    </router-link></a-menu-item>
-                <a-menu-item key="setting:2"><span class="nav-sub">Past Exhibitions</span></a-menu-item>
+                <a-menu-item>
+                    <router-link to="/exhibition" class="nav-sub">
+                        <span>Current Exhibitions</span>
+                    </router-link>
+                </a-menu-item>
+                <a-menu-item>
+                    <span class="nav-sub">Past Exhibitions</span>
+                </a-menu-item>
             </a-sub-menu>
             <a-sub-menu v-if="isAdmin()">
                 <template #title>
-                    <a href="https://localhost:7194/swagger/index.html">swagger</a>
+                    <a href="https://localhost:7194/swagger/index.html" class="nav-link">Swagger</a>
                 </template>
             </a-sub-menu>
         </a-menu>
@@ -58,23 +69,11 @@
 </template>
 
 <script>
-import { ref } from 'vue';
 import { mapState } from 'vuex';
 
 export default {
-    name: "NavigationAntDesign",
-    data() {
-        return {
-            current: ""
-        }
-    },
+    name: "DropdownMenuAntD",
     methods: {
-        setup() {
-        const current = ref<String>(['mail']);
-        return {
-            current,
-        };
-    },
         isAdmin() {
             if (this.account.user) {
                 return this.account.user.role == "Admin";
