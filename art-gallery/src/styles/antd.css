@@ -17335,7 +17335,7 @@ textarea.ant-mentions {
   transition: border-color 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), background 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), padding 0.15s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .ant-menu-submenu-selected {
-  color: var(--color--primary);
+  color: var(--color--turquoise-extra-light);
 }
 .ant-menu-item:active,
 .ant-menu-submenu-title:active {
@@ -17396,7 +17396,7 @@ textarea.ant-mentions {
   color: var(--color--primary);
 }
 .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
-  background-color: #fff8f0;
+  background-color: var(--color--turquoise-extra-light);
 }
 .ant-menu-inline,
 .ant-menu-vertical,

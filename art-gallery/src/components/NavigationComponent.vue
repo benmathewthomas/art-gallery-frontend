@@ -186,7 +186,6 @@ export default {
         text-transform: lowercase;
     }
 
-
     :deep(.nav-tools-signup), :deep(.nav-tools-login) {
         margin-left: 0;
         margin-right: calc(2px + 10 * (100vw - 320px) / 1040);

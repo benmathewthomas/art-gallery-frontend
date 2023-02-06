@@ -1,10 +1,7 @@
-
-
-
 <template>
     <div class="nav-site">
-        <a-menu mode="horizontal"  class="nav-menu">
-            <a-menu-item>
+        <a-menu v-model:selectedKeys="current" mode="horizontal"  class="nav-menu">
+            <a-menu-item key="home">
                 <router-link to="/" class="nav-link">
                     <span>Home</span>
                 </router-link>
@@ -15,12 +12,12 @@
                         <span>Artworks</span>
                     </router-link>
                 </template>
-                <a-menu-item>
+                <a-menu-item key="artwork-of-day" class="menu-item">
                     <router-link to="/artworkofday" class="nav-sub">
                         <span>Artwork of the Day</span>
                     </router-link>
                 </a-menu-item>
-                <a-menu-item>
+                <a-menu-item key="artworks-list">
                     <router-link to="/artworks" class="nav-sub">
                         <span>List of Artworks</span>
                     </router-link>
@@ -32,15 +29,15 @@
                         <span>Art & Culture</span>
                     </router-link>
                 </template>
-                    <a-menu-item>
+                    <a-menu-item key="symbols">
                         <span class="nav-sub">Symbols</span>
                     </a-menu-item>
-                    <a-menu-item>
+                    <a-menu-item key="artist-of-day">
                         <router-link to="/artistofday" class="nav-sub">
                             <span>Artist of the Day</span>
                         </router-link>
                     </a-menu-item>
-                    <a-menu-item>
+                    <a-menu-item key="art-facts">
                         <span class="nav-sub">Aboriginal Art Facts</span>
                     </a-menu-item>
             </a-sub-menu>
@@ -50,12 +47,12 @@
                         <span>Exhibitions</span>
                     </router-link>
                 </template>
-                <a-menu-item>
+                <a-menu-item key="exhibition-currnt">
                     <router-link to="/exhibition" class="nav-sub">
                         <span>Current Exhibitions</span>
                     </router-link>
                 </a-menu-item>
-                <a-menu-item>
+                <a-menu-item key="exhibition-past">
                     <span class="nav-sub">Past Exhibitions</span>
                 </a-menu-item>
             </a-sub-menu>
@@ -70,6 +67,7 @@
 
 <script>
 import { mapState } from 'vuex';
+import { ref } from 'vue';
 
 export default {
     name: "DropdownMenuAntD",
@@ -79,6 +77,12 @@ export default {
                 return this.account.user.role == "Admin";
             }
         }
+    },
+    setup() {
+        const current = ref(['mail']);
+        return {
+            current,
+        };
     },
     computed: {
         ...mapState({
@@ -99,4 +103,5 @@ export default {
         transition-delay: 0;
         border-bottom: 2px solid;
     }
+
 </style>

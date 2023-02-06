@@ -1,20 +1,23 @@
 <template>
     <div>
-        <a-menu class="nav-menu-dropdown" mode="vertical">
+        <a-menu v-model:selectedKeys="current" class="nav-menu-dropdown" mode="vertical">
             <a-sub-menu>
                 <template #title>
                     <router-link to="/artworks" class="nav-link">
                         <span>Artworks</span>
                     </router-link>
                 </template>
-                <a-menu-item>
+                <a-menu-item key="artwork-of-day">
                     <router-link to="/artworkofday" class="nav-sub">
                         <span>Artwork of the Day</span>
                     </router-link>
                 </a-menu-item>
-                <a-menu-item><span class="nav-sub">Browse by Price</span></a-menu-item>
+                <a-menu-item key="artworks-list">                    
+                    <router-link to="/artworks" class="nav-sub">
+                        <span>List of Artworks</span>
+                    </router-link></a-menu-item>
             </a-sub-menu>
-            <a-menu-item>
+            <a-menu-item key="login">
                 <div class="nav-tools-login" v-if="!account.user">
                     <router-link to="/login" class="nav-link">
                         <span>Log In</span>
@@ -27,15 +30,15 @@
                         <span>Art & Culture</span>
                     </router-link>
                 </template>
-                    <a-menu-item><span class="nav-sub">Symbols</span></a-menu-item>
-                    <a-menu-item>
+                    <a-menu-item key="symbols"><span class="nav-sub">Symbols</span></a-menu-item>
+                    <a-menu-item key="artist-of-day">
                         <router-link to="/artistofday" class="nav-sub">
                             <span>Artist of the Day</span>
                         </router-link>
                     </a-menu-item>
-                    <a-menu-item><span class="nav-sub">Aboriginal Art Facts</span></a-menu-item>
+                    <a-menu-item key="art-facts"><span class="nav-sub">Aboriginal Art Facts</span></a-menu-item>
             </a-sub-menu>
-            <a-menu-item>
+            <a-menu-item key="signup">
                 <div class="nav-tools-signup" v-if="!account.user">
                     <router-link to="/signup" class="nav-link">
                         <span>Sign Up</span>
@@ -48,8 +51,12 @@
                         <span>Exhibitions</span>
                     </router-link>
                 </template>
-                <a-menu-item><span class="nav-sub">Current Exhibitions</span></a-menu-item>
-                <a-menu-item><span class="nav-sub">Past Exhibitions</span></a-menu-item>
+                <a-menu-item key="exhibition-current">
+                    <router-link to="/exhibition" class="nav-sub">
+                        <span>Current Exhibitions</span>
+                    </router-link>
+                </a-menu-item>
+                <a-menu-item key="exhibition-past"><span class="nav-sub">Past Exhibitions</span></a-menu-item>
             </a-sub-menu>
         </a-menu>
     </div>
@@ -58,9 +65,16 @@
 
 <script>
 import { mapState } from 'vuex';
+import { ref } from 'vue';
 
 export default {
     name: "CollapsibleMenuAntD",
+    setup() {
+        const current = ref(['mail']);
+        return {
+            current,
+        };
+    },
     computed: {
         ...mapState({
             account: state => state.account
