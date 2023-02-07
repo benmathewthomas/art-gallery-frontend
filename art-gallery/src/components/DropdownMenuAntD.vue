@@ -79,7 +79,7 @@ export default {
         }
     },
     setup() {
-        const current = ref(['mail']);
+        const current = ref(['home']);
         return {
             current,
         };

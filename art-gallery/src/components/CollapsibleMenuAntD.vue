@@ -1,11 +1,10 @@
 <template>
     <div>
-        <a-menu v-model:selectedKeys="current" class="nav-menu-dropdown" mode="vertical">
-            <a-sub-menu>
+        <a-menu v-model:openKeys="openKeys" v-model:selectedKeys="current" class="nav-menu-dropdown" mode="inline" @click="handleClick">
+            <div>
+            <a-sub-menu key="sub-artworks">
                 <template #title>
-                    <router-link to="/artworks" class="nav-link">
-                        <span>Artworks</span>
-                    </router-link>
+                        <span>artworks</span>
                 </template>
                 <a-menu-item key="artwork-of-day">
                     <router-link to="/artworkofday" class="nav-sub">
@@ -17,18 +16,9 @@
                         <span>List of Artworks</span>
                     </router-link></a-menu-item>
             </a-sub-menu>
-            <a-menu-item key="login">
-                <div class="nav-tools-login" v-if="!account.user">
-                    <router-link to="/login" class="nav-link">
-                        <span>Log In</span>
-                    </router-link>
-                </div>
-            </a-menu-item>
-            <a-sub-menu>
+            <a-sub-menu key="sub-culture">
                 <template #title>
-                    <router-link to="/culture" class="nav-link">
-                        <span>Art & Culture</span>
-                    </router-link>
+                        <span>art & culture</span>
                 </template>
                     <a-menu-item key="symbols"><span class="nav-sub">Symbols</span></a-menu-item>
                     <a-menu-item key="artist-of-day">
@@ -38,18 +28,9 @@
                     </a-menu-item>
                     <a-menu-item key="art-facts"><span class="nav-sub">Aboriginal Art Facts</span></a-menu-item>
             </a-sub-menu>
-            <a-menu-item key="signup">
-                <div class="nav-tools-signup" v-if="!account.user">
-                    <router-link to="/signup" class="nav-link">
-                        <span>Sign Up</span>
-                    </router-link>
-                </div>
-            </a-menu-item>
-            <a-sub-menu>
+            <a-sub-menu key="sub-exhibitions">
                 <template #title>
-                    <router-link to="/exhibition" class="nav-link">
-                        <span>Exhibitions</span>
-                    </router-link>
+                        <span>exhibitions</span>
                 </template>
                 <a-menu-item key="exhibition-current">
                     <router-link to="/exhibition" class="nav-sub">
@@ -58,6 +39,23 @@
                 </a-menu-item>
                 <a-menu-item key="exhibition-past"><span class="nav-sub">Past Exhibitions</span></a-menu-item>
             </a-sub-menu>
+        </div>
+            <div>
+            <a-menu-item key="login">
+                <div class="nav-tools-login" v-if="!account.user">
+                    <router-link to="/login" class="nav-link">
+                        <span>Log In</span>
+                    </router-link>
+                </div>
+            </a-menu-item>
+            <a-menu-item key="signup">
+                <div class="nav-tools-signup" v-if="!account.user">
+                    <router-link to="/signup" class="nav-link">
+                        <span>Sign Up</span>
+                    </router-link>
+                </div>
+            </a-menu-item>
+        </div>
         </a-menu>
     </div>
 </template>
@@ -65,16 +63,29 @@
 
 <script>
 import { mapState } from 'vuex';
-import { ref } from 'vue';
+import { watch } from 'vue';
 
 export default {
     name: "CollapsibleMenuAntD",
     setup() {
-        const current = ref(['mail']);
-        return {
-            current,
-        };
-    },
+        const current = [];
+        const openKeys = [];
+        const handleClick = e => {
+            console.log('click', e);
+    };
+    const titleClick = e => {
+      console.log('titleClick', e);
+    };
+    watch(() => openKeys, val => {
+      console.log('openKeys', val);
+    });
+    return {
+      current,
+      openKeys,
+      handleClick,
+      titleClick,
+    };
+  },
     computed: {
         ...mapState({
             account: state => state.account
