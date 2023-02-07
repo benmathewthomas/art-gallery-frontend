@@ -1,6 +1,6 @@
 <template>
     <div class="nav-site">
-        <a-menu v-model:selectedKeys="current" mode="horizontal"  class="nav-menu">
+        <a-menu v-model:selectedKeys="current" mode="horizontal" class="nav-menu" disabledOverflow={true}>
             <a-menu-item key="home">
                 <router-link to="/" class="nav-link">
                     <span>Home</span>
