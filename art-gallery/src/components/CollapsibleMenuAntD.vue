@@ -11,7 +11,7 @@
                         <span>Artwork of the Day</span>
                     </router-link>
                 </a-menu-item>
-                <a-menu-item key="artworks-list">                    
+                <a-menu-item key="artworks-list">
                     <router-link to="/artworks" class="nav-sub">
                         <span>List of Artworks</span>
                     </router-link></a-menu-item>

@@ -3,7 +3,7 @@
     <HeadingComponent title="Welcome to DDGIT Gallery"/>
     <div class="user-greeting" v-if="account.user"><span>Hi {{ account.user.name }}!</span></div>
     <div class="home-banner">
-      <img src="@/assets/img/emerging_artists.avif" alt="Emerging Artists Exhibition banner">
+      <img src="@/assets/img/the_dance_class_2014.79.710.jpg" alt="Front Splash Image">
     </div>
   </div>
 </template>
