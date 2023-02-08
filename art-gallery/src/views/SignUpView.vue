@@ -22,8 +22,7 @@
                 <label for="password"><b>Password:</b></label>
                 <p class="password-prompt">Password must be at least 14 and no more than 24 characters long.</p>
                 <p class='error-message'><ErrorMessage name="password" /></p>
-                <Field v-model="user.password" type="text" placeholder="Enter password" name="password" id="password" /> 
-                <!-- rules="required|min:14|max:24"/> -->
+                <Field v-model="user.password" type="text" placeholder="Enter password" name="password" id="password" rules="required|min:14|max:24"/>
 
                 <label for="passwordConfirmation"><b>Confirm Password:</b></label>
                 <p class='error-message'><ErrorMessage name="passwordConfirmation" /></p>
