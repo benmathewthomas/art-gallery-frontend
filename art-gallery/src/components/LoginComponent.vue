@@ -12,8 +12,10 @@
                 <p class='error-message'><ErrorMessage name="password" /></p>
                 <Field v-model="password" type="password" placeholder="Password" name="password" class="form-control" rules="required"/>
 
-                <button type="submit" class="login-submit">Log In</button>
-                <button><router-link to="/signup" class="btn-link">Sign up</router-link></button>
+                <div class="button-div">
+                    <button type="submit" class="login-submit">Log In</button>
+                    <button><router-link to="/signup" class="btn-link">Sign up</router-link></button>
+                </div>
             </Form>
         </div>
     </div>
@@ -117,12 +119,19 @@ export default {
         margin-left: 15px;
     }
 
+    .button-div {
+        margin-top: 20px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
     button {
         border: none;
         background-color: var(--color--primary);
-        padding: 5px 15px;
+        padding: 10px 20px;
         margin: 0 15px;
         font-weight: var(--font--semibold);
+        border-radius: 5px;
     }
 
     button, .btn-link {

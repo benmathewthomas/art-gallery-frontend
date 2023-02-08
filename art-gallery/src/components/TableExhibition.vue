@@ -32,7 +32,7 @@
             <button v-on:click="showInputs" class="plus-button" v-if="isAdmin()">+</button>
         </div>
 
-        <div class="post-message" v-if="resultReceived && entryClicked" >
+        <div class="post-message" v-if="resultReceived && addExhibitionClicked" >
             <div v-if="success">
                 <h3 class="success-text">{{ this.postResult }}</h3>
             </div>
@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <div class="entry-div" v-if="entryClicked">
+        <div class="entry-div" v-if="addExhibitionClicked">
             <h2>Add New Exhibition</h2>
             <input type="text" v-model="name" class="table-input" placeholder="Enter name..."/>
             <input type="text" v-model="description" class="table-input" placeholder="Enter description..."/>
@@ -49,7 +49,7 @@
             <!-- Added to match the new model - might be better as a special date input? -->
             <input type="text" v-model="startDate" class="table-input" placeholder="Enter start date as DD/MM/YYYY..."/>
             <input type="text" v-model="endDate" class="table-input" placeholder="Enter end date as DD/MM/YYYY..."/>
-            <button v-on:click="addEntry" class="entry-button">Add entry</button>
+            <button v-on:click="addExhibition" class="add-exhibition-button">Add exhibition</button>
         </div>
 
     </div>
@@ -72,7 +72,7 @@ export default {
     data() {
         return {
             search: "",
-            entryClicked: false,
+            addExhibitionClicked: false,
             name: "",
             description: "",
             backgroundImageUrl: "",
@@ -97,13 +97,13 @@ export default {
         },
         // Show the add entry inputs.
         showInputs() {
-            if (!this.entryClicked)
-                this.entryClicked = true;
+            if (!this.addExhibitionClicked)
+                this.addExhibitionClicked = true;
             else
-                this.entryClicked = false;
+                this.addExhibitionClicked = false;
         },
         // Add entry to database.
-        async addEntry() {
+        async addExhibition() {
             // Check for authentication credentials - doesn't check if the user is an admin, just that there is a user
             if (!this.account.user)
             {
@@ -217,12 +217,14 @@ export default {
         margin-bottom: 20px;
     }
 
-    .entry-button {
-        padding: 10px;
-        font-size: 18px;
-        font-weight: bold;
-        margin-top: 10px;
-        margin-bottom: 20px;
+    .add-exhibition-button {
+        color: var(--color--white);
+        border: none;
+        background-color: var(--color--primary);
+        padding: 10px 20px;
+        margin: 10px 15px;
+        font-weight: var(--font--semibold);
+        border-radius: 5px;
     }
 
     .table-input {
