@@ -2,6 +2,7 @@
 title: Router
 ---
 
+### [ < Return Home ](./README.md)
 # Router
 
 Creates a router with a web history and assigns a path and name to each of the view components.

@@ -29,7 +29,7 @@
     import { getArtworks } from '../services/ArtworkService'
 
     export default {
-    name: "TableHtml",
+    name: "TableArtworks",
     data() {
         return {
             artworks: [],

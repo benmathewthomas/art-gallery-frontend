@@ -2,6 +2,8 @@
 title: Stored Data
 ---
 
+### [ < Return Home ](./README.md)
+
 # Stored data
 
 ## Account store
