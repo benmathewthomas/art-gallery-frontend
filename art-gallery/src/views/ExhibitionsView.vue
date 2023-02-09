@@ -1,10 +1,12 @@
 <template v-if="dataLoaded">
   <div class="exhibitions">
     <HeadingComponent title="EXHIBITIONS"/>
+    <HeadingComponent title="Ant Design table using Vue's list and conditional rendering" class="subheading"/>
     <TableAntDesign :exhibitions="this.exhibitions" v-on:updateData="updateData()"/>
     <br>
     <br>
     <br>
+    <HeadingComponent title="HTML table using Vue's list and conditional rendering" class="subheading"/>
     <TableExhibition :exhibitions="this.exhibitions" v-on:updateData="updateData()"/>
     <br>
     <br>
@@ -23,7 +25,7 @@ export default {
     TableExhibition,
     HeadingComponent,
     TableAntDesign
-},
+  },
   data() {
     return  {
         exhibitions: [],
@@ -84,6 +86,13 @@ export default {
     margin-bottom: 50px;
     margin:auto;
     margin-bottom: 110px;
+  }
+
+  .subheading {
+    font-style: italic;
+    font-weight:normal;
+    color: var(--color--gray);
+    font-size: max(25px);
   }
 
   @media only screen and (max-width: 600px) {

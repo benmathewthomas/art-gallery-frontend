@@ -1,9 +1,11 @@
 <template>
   <div class="culture">
     <HeadingComponent title="ART & CULTURE"/>
+    <HeadingComponent title="Artist of the Day" class="subheading"/>
     <FeaturedArtist  />
     <br>
     <br>
+    <HeadingComponent title="Artwork of the Day" class="subheading"/>
     <FeaturedArtwork />
   </div>
 </template>
@@ -19,6 +21,14 @@ export default {
     FeaturedArtist,
     HeadingComponent,
     FeaturedArtwork
-},
+  },
 }
 </script>
+
+<style scoped>
+  .subheading {
+    font-style: italic;
+    font-weight:normal;
+    color: var(--color--gray);
+  }
+</style>
