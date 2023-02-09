@@ -3,14 +3,14 @@
 </template>
 
 <script>
-    export default {
-        name: "HeaderComponent",
-        props: {
-            title: {
-                type: String
-            }
+export default {
+    name: "HeaderComponent",
+    props: {
+        title: {
+            type: String
         }
     }
+}
 </script>
 
 <style scoped>

@@ -7,14 +7,14 @@
 </template>
 
 <script>
-  import FeaturedArtist from '@/components/FeaturedArtist.vue';
-  import HeadingComponent from '@/components/HeadingComponent.vue';
+import FeaturedArtist from '@/components/FeaturedArtist.vue';
+import HeadingComponent from '@/components/HeadingComponent.vue';
 
-  export default {
-    name: 'ArtistDayView',
-    components: {
-      HeadingComponent,
-      FeaturedArtist
-    }
+export default {
+  name: 'ArtistDayView',
+  components: {
+    HeadingComponent,
+    FeaturedArtist
   }
+}
 </script>

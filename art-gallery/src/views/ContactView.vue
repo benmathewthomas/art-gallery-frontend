@@ -9,6 +9,6 @@ export default {
   name: 'ContactView',
   components: {
     HeadingComponent
-}
+  }
 }
 </script>

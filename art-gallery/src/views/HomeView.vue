@@ -28,27 +28,26 @@ export default {
 </script>
 
 <style scoped>
-    .home-banner {
-        text-align: center;
-    }
-
-    .home img{
-        width: 90vw;
-        max-width: 1000px;
-    }
-
-    .home {
-        font-family: var(--font--base);
-        margin: 20px;
-        padding-bottom: 50px;
-    }
-
-    .user-greeting {
-      font-family: var(--font--base);
-      margin: 15px;
+  .home-banner {
       text-align: center;
-      font-size: 2em;
-      font-weight:600;
-    }
+  }
 
+  .home img{
+      width: 90vw;
+      max-width: 1000px;
+  }
+
+  .home {
+      font-family: var(--font--base);
+      margin: 20px;
+      padding-bottom: 50px;
+  }
+
+  .user-greeting {
+    font-family: var(--font--base);
+    margin: 15px;
+    text-align: center;
+    font-size: 2em;
+    font-weight:600;
+  }
 </style>

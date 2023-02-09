@@ -21,22 +21,22 @@ export default {
   name: 'AboutView',
   components: {
     HeadingComponent
-}
+  }
 }
 </script>
 
 
 <style scoped>
-    .about-text {
-        color: var(--color--charcoal);
-        font-size: larger;
-        position: relative;
-        padding: 0 100px;
-        font-weight: var(--font--semibold);
-    }
+  .about-text {
+      color: var(--color--charcoal);
+      font-size: larger;
+      position: relative;
+      padding: 0 100px;
+      font-weight: var(--font--semibold);
+  }
 
-    .about-text ul {
-      font-size: medium;
-      font-weight: var(--font--normal);
-    }
+  .about-text ul {
+    font-size: medium;
+    font-weight: var(--font--normal);
+  }
 </style>
