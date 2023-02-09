@@ -17,6 +17,45 @@ Contains the site author information.
 <br>
 <br>
 
+## ArtistDayView
+
+Displays the featured artist of the day.
+
+### Components
+
+`HeadingComponent` is used to display the page heading.
+
+`FeaturedArtist` is a card which displays the featured artist of the day data.
+
+<br>
+<br>
+
+## ArtworkDayView
+
+Displays the featured artwork of the day.
+
+### Components
+
+`HeadingComponent` is used to display the page heading.
+
+`FeaturedArtwork` is a card which displays the featured artwork of the day data.
+
+<br>
+<br>
+
+## Artworks
+
+Displays the artworks table.
+
+### Components
+
+`HeadingComponent` is used to display the page heading.
+
+`TableArtworks` is a HTML table displaying the artworks data.
+
+<br>
+<br>
+
 ## ContactView
 
 A blank view for adding contact information or a contact form.
@@ -24,6 +63,62 @@ A blank view for adding contact information or a contact form.
 ### Components
 
 `HeadingComponent` is used to display the page heading.
+
+<br>
+<br>
+
+## CultureView
+
+Displays the artist of the day and artwork of the day.
+
+### Components
+
+`HeadingComponent` is used to display the page main heading and subheadings.
+
+`FeaturedArtist`  is a card which displays the featured artist of the day data.
+
+`FeaturedArtwork`  is a card which displays the featured artwork of the day data.
+
+<br>
+<br>
+
+## ExhibitionsView
+
+Displays both exhibition tables.
+
+### Components
+
+`HeadingComponent` is used to display the page main heading and subheadings.
+
+`TableExhibition` is a HTML table using Vue's list and conditional rendering.
+
+`TableAntDesign` is an Ant Design table using Vue's list and conditional rendering.
+
+### Methods
+
+#### `fetchExhibitions()`
+
+Asynchronous method which uses the ExhibitionService to fetch the exhibitions from the database.
+
+#### `updateData()`
+
+Updates the data in the table when an exhibition item is added.
+
+#### `parseDate()`
+
+Changes date strings to Date objects.
+
+#### `formatDate`
+
+Formats a Date object to display the date as 'DD/MM/YYYY'.
+
+### Mounted
+
+Ensures that the artworks data has been fetched for display.
+
+::: tip
+`mounted()` is called after the component has been mounted.
+:::
 
 <br>
 <br>

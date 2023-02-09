@@ -6,9 +6,45 @@ title: Services
 
 # Services
 
+## ArtistService
+
+### Methods
+
+#### `getArtists()`
+
+Fetches all of the artists from the database.
+
+#### `getArtistOfTheDay()`
+
+Fetches the artist of the day from the database.
+
+## ArtworkService
+
+### Methods
+
+#### `getArtworks()`
+
+Fetches all of the artworks from the database.
+
+#### `getArtworkOfTheDay()`
+
+Fetches the artwork of the day from the database.
+
 ## AuthService
 
 Used to create the auth header for API requests which require authentication.
+
+## ExhibitionService
+
+### Methods
+
+#### `getExhibitions()`
+
+Fetches all of the exhibitions from the database.
+
+#### `postExhibition()`
+
+Posts an exhibition to the database.
 
 ## UserService
 

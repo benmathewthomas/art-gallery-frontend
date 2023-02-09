@@ -435,7 +435,7 @@ Ensures that the artworks data has been fetched for display.
 `mounted()` is called after the component has been mounted.
 :::
 
-## TableArtworks
+## TableExhibitions
 
 ### Properties
 
