@@ -189,3 +189,4 @@ Returns to the home page.
 #### handleSubmit()
 
 Handles sending the user information given in the sign up form to the account service.
+

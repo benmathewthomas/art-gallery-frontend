@@ -16,3 +16,4 @@ Before each route is loaded, a navigation guard checks the local storage for a u
 
 Vue Router API:
 https://router.vuejs.org/api/interfaces/Router.html
+
