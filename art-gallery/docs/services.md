@@ -79,4 +79,3 @@ Receives the request from the SignUp() method, sends it to the API and handles t
 
 <br>
 <br>
-
