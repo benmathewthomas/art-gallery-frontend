@@ -7,7 +7,8 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "test": "vitest"
   },
   "dependencies": {
     "ant-design-vue": "^3.2.15",
@@ -15,6 +16,7 @@
     "axios": "^1.2.2",
     "axios-auth-refresh": "^3.3.6",
     "core-js": "^3.8.3",
+    "happy-dom": "^9.1.0",
     "vee-validate": "^4.7.3",
     "vue": "^3.2.13",
     "vue-jwt-decode": "^0.1.0",
@@ -31,8 +33,10 @@
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "@vue/test-utils": "^2.0.0-rc.18",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
+    "vitest": "^0.29.8",
     "vuepress": "^2.0.0-beta.60"
   },
   "eslintConfig": {
