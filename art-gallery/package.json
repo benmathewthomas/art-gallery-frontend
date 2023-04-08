@@ -9,6 +9,7 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs",
     "test": "vitest",
+    "test:unit": "vitest --environment jsdom",
     "coverage": "vitest run --coverage",
     "testui": "vitest --ui"
   },
