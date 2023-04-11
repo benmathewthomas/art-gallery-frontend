@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { expect, it, describe, beforeEach } from "vitest";
-import CollapsibleMenuAntD from "../../components/CollapsibleMenuAntD.vue";
+import CollapsibleMenuAntD from "@/components/CollapsibleMenuAntD.vue";
 
 describe("CollapsibleMenuAntD", () => {
   let wrapper;

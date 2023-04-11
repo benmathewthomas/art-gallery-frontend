@@ -43,4 +43,13 @@ describe("LoginComponent", () => {
 
     expect(errorMessage.text()).toBe("This field is required");
   });
+
+  it("calls handleLogin method on form submit", async () => {
+    const form = wrapper.find("form");
+    const handleLogin = vi.spyOn(wrapper.vm, "handleLogin");
+
+    await form.trigger("submit.prevent");
+
+    expect(handleLogin).toHaveBeenCalled();
+  });
 });

@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { expect, it, describe, beforeEach } from "vitest";
-import CardComponent from "../../components/CardComponent.vue";
+import CardComponent from "@/components/CardComponent.vue";
 
 describe("CardComponent", () => {
   let wrapper;
