@@ -11,7 +11,7 @@
     "test": "vitest",
     "test:unit": "vitest --environment jsdom",
     "coverage": "vitest run --coverage",
-    "testui": "vitest --ui"
+    "testui": "vitest --ui --environment jsdom"
   },
   "dependencies": {
     "ant-design-vue": "^3.2.15",

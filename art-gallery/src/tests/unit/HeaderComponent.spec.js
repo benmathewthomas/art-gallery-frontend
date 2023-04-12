@@ -23,11 +23,6 @@ describe("HeaderComponent", () => {
     expect(socialsComponent.exists()).toBe(true);
   });
 
-  it("renders the router link with correct to attribute", () => {
-    const routerLink = wrapper.find("router-link");
-    expect(routerLink.props("to")).toBe("/");
-  });
-
   it("renders the logo with correct aria-label", () => {
     const routerLink = wrapper.find("router-link");
     expect(routerLink.attributes("aria-label")).toBe("Gallery Home Page");

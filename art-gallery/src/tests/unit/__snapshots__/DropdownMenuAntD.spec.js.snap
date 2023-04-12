@@ -1,0 +1,33 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DropdownMenuAntD > renders correctly 1`] = `
+"<div data-v-55c2bd29=\\"\\" class=\\"nav-site\\">
+  <a-menu data-v-55c2bd29=\\"\\" selectedkeys=\\"home\\" mode=\\"horizontal\\" class=\\"nav-menu\\" disabledoverflow=\\"{true}\\">
+    <a-menu-item data-v-55c2bd29=\\"\\">
+      <router-link data-v-55c2bd29=\\"\\" to=\\"/\\" class=\\"nav-link\\"><span data-v-55c2bd29=\\"\\">Home</span></router-link>
+    </a-menu-item>
+    <a-sub-menu data-v-55c2bd29=\\"\\">
+      <a-menu-item data-v-55c2bd29=\\"\\" class=\\"menu-item\\">
+        <router-link data-v-55c2bd29=\\"\\" to=\\"/artworkofday\\" class=\\"nav-sub\\"><span data-v-55c2bd29=\\"\\">Artwork of the Day</span></router-link>
+      </a-menu-item>
+      <a-menu-item data-v-55c2bd29=\\"\\">
+        <router-link data-v-55c2bd29=\\"\\" to=\\"/artworks\\" class=\\"nav-sub\\"><span data-v-55c2bd29=\\"\\">List of Artworks</span></router-link>
+      </a-menu-item>
+    </a-sub-menu>
+    <a-sub-menu data-v-55c2bd29=\\"\\">
+      <a-menu-item data-v-55c2bd29=\\"\\"><span data-v-55c2bd29=\\"\\" class=\\"nav-sub\\">Symbols</span></a-menu-item>
+      <a-menu-item data-v-55c2bd29=\\"\\">
+        <router-link data-v-55c2bd29=\\"\\" to=\\"/artistofday\\" class=\\"nav-sub\\"><span data-v-55c2bd29=\\"\\">Artist of the Day</span></router-link>
+      </a-menu-item>
+      <a-menu-item data-v-55c2bd29=\\"\\"><span data-v-55c2bd29=\\"\\" class=\\"nav-sub\\">Aboriginal Art Facts</span></a-menu-item>
+    </a-sub-menu>
+    <a-sub-menu data-v-55c2bd29=\\"\\">
+      <a-menu-item data-v-55c2bd29=\\"\\">
+        <router-link data-v-55c2bd29=\\"\\" to=\\"/exhibition\\" class=\\"nav-sub\\"><span data-v-55c2bd29=\\"\\">Current Exhibitions</span></router-link>
+      </a-menu-item>
+      <a-menu-item data-v-55c2bd29=\\"\\"><span data-v-55c2bd29=\\"\\" class=\\"nav-sub\\">Past Exhibitions</span></a-menu-item>
+    </a-sub-menu>
+    <a-sub-menu data-v-55c2bd29=\\"\\"></a-sub-menu>
+  </a-menu>
+</div>"
+`;
