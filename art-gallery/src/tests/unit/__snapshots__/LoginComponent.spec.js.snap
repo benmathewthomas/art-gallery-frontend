@@ -1,0 +1,20 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LoginComponent > renders correctly 1`] = `
+"<div data-v-87276d9b=\\"\\" class=\\"container\\">
+  <div data-v-87276d9b=\\"\\" class=\\"card\\">
+    <form data-v-87276d9b=\\"\\" novalidate=\\"\\" name=\\"login-form\\">
+      <p data-v-87276d9b=\\"\\" class=\\"login-text\\">Enter your login details to sign in, or click 'Sign up' to create an account.</p><label data-v-87276d9b=\\"\\" for=\\"email\\">Email</label>
+      <p data-v-87276d9b=\\"\\" class=\\"error-message\\">
+        <!---->
+      </p><input data-v-87276d9b=\\"\\" type=\\"email\\" placeholder=\\"Email\\" class=\\"form-control\\" name=\\"email\\"><label data-v-87276d9b=\\"\\" for=\\"password\\">Password:</label>
+      <p data-v-87276d9b=\\"\\" class=\\"error-message\\">
+        <!---->
+      </p><input data-v-87276d9b=\\"\\" type=\\"password\\" placeholder=\\"Password\\" class=\\"form-control\\" name=\\"password\\">
+      <div data-v-87276d9b=\\"\\" class=\\"button-div\\"><button data-v-87276d9b=\\"\\" type=\\"submit\\" class=\\"login-submit\\">Log In</button><button data-v-87276d9b=\\"\\">
+          <router-link data-v-87276d9b=\\"\\" to=\\"/signup\\" class=\\"btn-link\\">Sign up</router-link>
+        </button></div>
+    </form>
+  </div>
+</div>"
+`;

@@ -1,0 +1,43 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CollapsibleMenuAntD > renders correctly 1`] = `
+"<div data-v-b7bfe5a9=\\"\\">
+  <a-menu data-v-b7bfe5a9=\\"\\" openkeys=\\"\\" selectedkeys=\\"\\" class=\\"nav-menu-dropdown\\" mode=\\"inline\\">
+    <div data-v-b7bfe5a9=\\"\\">
+      <a-sub-menu data-v-b7bfe5a9=\\"\\">
+        <a-menu-item data-v-b7bfe5a9=\\"\\">
+          <router-link data-v-b7bfe5a9=\\"\\" to=\\"/artworkofday\\" class=\\"nav-sub\\"><span data-v-b7bfe5a9=\\"\\">Artwork of the Day</span></router-link>
+        </a-menu-item>
+        <a-menu-item data-v-b7bfe5a9=\\"\\">
+          <router-link data-v-b7bfe5a9=\\"\\" to=\\"/artworks\\" class=\\"nav-sub\\"><span data-v-b7bfe5a9=\\"\\">List of Artworks</span></router-link>
+        </a-menu-item>
+      </a-sub-menu>
+      <a-sub-menu data-v-b7bfe5a9=\\"\\">
+        <a-menu-item data-v-b7bfe5a9=\\"\\"><span data-v-b7bfe5a9=\\"\\" class=\\"nav-sub\\">Symbols</span></a-menu-item>
+        <a-menu-item data-v-b7bfe5a9=\\"\\">
+          <router-link data-v-b7bfe5a9=\\"\\" to=\\"/artistofday\\" class=\\"nav-sub\\"><span data-v-b7bfe5a9=\\"\\">Artist of the Day</span></router-link>
+        </a-menu-item>
+        <a-menu-item data-v-b7bfe5a9=\\"\\"><span data-v-b7bfe5a9=\\"\\" class=\\"nav-sub\\">Aboriginal Art Facts</span></a-menu-item>
+      </a-sub-menu>
+      <a-sub-menu data-v-b7bfe5a9=\\"\\">
+        <a-menu-item data-v-b7bfe5a9=\\"\\">
+          <router-link data-v-b7bfe5a9=\\"\\" to=\\"/exhibition\\" class=\\"nav-sub\\"><span data-v-b7bfe5a9=\\"\\">Current Exhibitions</span></router-link>
+        </a-menu-item>
+        <a-menu-item data-v-b7bfe5a9=\\"\\"><span data-v-b7bfe5a9=\\"\\" class=\\"nav-sub\\">Past Exhibitions</span></a-menu-item>
+      </a-sub-menu>
+    </div>
+    <div data-v-b7bfe5a9=\\"\\">
+      <a-menu-item data-v-b7bfe5a9=\\"\\">
+        <div data-v-b7bfe5a9=\\"\\" class=\\"nav-tools-login\\">
+          <router-link data-v-b7bfe5a9=\\"\\" to=\\"/login\\" class=\\"nav-link\\"><span data-v-b7bfe5a9=\\"\\">Log In</span></router-link>
+        </div>
+      </a-menu-item>
+      <a-menu-item data-v-b7bfe5a9=\\"\\">
+        <div data-v-b7bfe5a9=\\"\\" class=\\"nav-tools-signup\\">
+          <router-link data-v-b7bfe5a9=\\"\\" to=\\"/signup\\" class=\\"nav-link\\"><span data-v-b7bfe5a9=\\"\\">Sign Up</span></router-link>
+        </div>
+      </a-menu-item>
+    </div>
+  </a-menu>
+</div>"
+`;

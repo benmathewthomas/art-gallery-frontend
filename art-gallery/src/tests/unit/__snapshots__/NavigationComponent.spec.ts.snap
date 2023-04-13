@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CardComponent > renders correctly 1`] = `
+"<div data-v-f967684d=\\"\\" class=\\"card-div\\">
+  <h1 data-v-f967684d=\\"\\" class=\\"card-heading\\">Card Heading</h1><img data-v-f967684d=\\"\\" class=\\"card-img\\" src=\\"https://example.com/image.jpg\\">
+  <h2 data-v-f967684d=\\"\\" class=\\"card-subheading\\">Card Subheading</h2>
+  <h4 data-v-f967684d=\\"\\" class=\\"detail\\">Detail 1</h4>
+  <h4 data-v-f967684d=\\"\\" class=\\"detail\\">Detail 2</h4>
+  <h4 data-v-f967684d=\\"\\" class=\\"detail\\">Detail 3</h4>
+  <h4 data-v-f967684d=\\"\\" class=\\"detail-description\\">Detail 4</h4>
+</div>"
+`;

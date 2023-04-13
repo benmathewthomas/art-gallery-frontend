@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FeaturedArtwork > renders correctly 1`] = `
+"<div data-v-f967684d=\\"\\" class=\\"card-div\\">
+  <h1 data-v-f967684d=\\"\\" class=\\"card-heading\\"></h1><img data-v-f967684d=\\"\\" class=\\"card-img\\" src=\\"https://example.com/image.jpg\\">
+  <h2 data-v-f967684d=\\"\\" class=\\"card-subheading\\">Artwork Title</h2>
+  <h4 data-v-f967684d=\\"\\" class=\\"detail\\">Oil on canvas</h4>
+  <h4 data-v-f967684d=\\"\\" class=\\"detail\\">2020</h4>
+  <h4 data-v-f967684d=\\"\\" class=\\"detail\\">Artist 1, Artist 2</h4>
+  <h4 data-v-f967684d=\\"\\" class=\\"detail-description\\">An amazing artwork</h4>
+</div>"
+`;
