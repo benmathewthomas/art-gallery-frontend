@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`FeaturedArtist > renders correctly 1`] = `
+"<div data-v-f967684d=\\"\\" class=\\"card-div\\">
+  <h1 data-v-f967684d=\\"\\" class=\\"card-heading\\"></h1><img data-v-f967684d=\\"\\" class=\\"card-img\\" src=\\"https://example.com/image.jpg\\">
+  <h2 data-v-f967684d=\\"\\" class=\\"card-subheading\\">Artist Name</h2>
+  <h4 data-v-f967684d=\\"\\" class=\\"detail\\">Born: 1980, New York</h4>
+  <h4 data-v-f967684d=\\"\\" class=\\"detail\\"></h4>
+  <h4 data-v-f967684d=\\"\\" class=\\"detail\\"></h4>
+  <h4 data-v-f967684d=\\"\\" class=\\"detail-description\\"></h4>
+</div>"
+`;
