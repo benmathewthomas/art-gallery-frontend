@@ -19,6 +19,7 @@
     "axios": "^1.2.2",
     "axios-auth-refresh": "^3.3.6",
     "core-js": "^3.8.3",
+    "sitemap-webpack-plugin": "^1.1.1",
     "vee-validate": "^4.7.3",
     "vue": "^3.2.13",
     "vue-jwt-decode": "^0.1.0",
