@@ -21,7 +21,6 @@ describe("login", () => {
 
     cy.get(".user-name").should("contain", "Test"); //Check that the user is logged in
 
-    // For example, you might check that the login button has been replaced with a logout button:
-    cy.contains("logout").should("be.visible");
+    cy.contains("logout").should("be.visible"); // Also check for the logout button
   });
 });
