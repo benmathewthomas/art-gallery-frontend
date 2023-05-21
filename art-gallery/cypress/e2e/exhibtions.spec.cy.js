@@ -1,4 +1,6 @@
-describe("ExhibitionsView", () => {
+//This test is designed to test the exhibitions page from the art-gallery project 05/2023
+
+describe("exhibitions", () => {
   beforeEach(() => {
     // Intercept the API call and respond with mock data
     cy.intercept("GET", "/api/exhibitions", {
@@ -11,6 +13,14 @@ describe("ExhibitionsView", () => {
           endDate: "2023-05-31",
           location: "Museum 1",
         },
+        {
+          backgroundImageUrl: "/spots.jpg",
+          name: "Exhibition of Spots",
+          description: "The spot and dot collection",
+          startDate: "2023-05-01",
+          endDate: "2023-06-31",
+          location: "Museum 1",
+        },
       ],
     }).as("getExhibitions");
 
@@ -18,6 +28,7 @@ describe("ExhibitionsView", () => {
   });
 
   it("displays the correct headings", () => {
+    //Checking the headings in the page
     cy.wait("@getExhibitions"); // wait for the API call to complete
     cy.get("h1").eq(0).should("contain", "EXHIBITIONS");
     cy.get("h1")
@@ -34,5 +45,18 @@ describe("ExhibitionsView", () => {
       );
   });
 
-  // Add other tests as necessary to check the contents of the tables
+  it("displays the data correctly in the table", () => {
+    //Checking the table data for the mock data
+    cy.wait("@getExhibitions");
+    cy.get("table").should("be.visible");
+    cy.get("table tr").should("have.length", 3); // check expected number of rows
+    cy.get("table tr")
+      .eq(1)
+      .should("contain", "Exhibition of Cubes")
+      .and("contain", "The complete cubisim collection");
+    cy.get("table tr")
+      .eq(2)
+      .should("contain", "Exhibition of Spots")
+      .and("contain", "The spot and dot collection");
+  });
 });

@@ -1,3 +1,5 @@
+//This test is designed to test the home page from the art-gallery project 05/2023
+
 describe("HomeView", () => {
   beforeEach(() => {
     cy.visit("http://localhost:8080/"); // visit the art gallery homepage

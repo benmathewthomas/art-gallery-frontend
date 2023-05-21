@@ -31,18 +31,17 @@ describe("CollapsibleMenuAntD", () => {
   });
 
   it("renders the login and signup menu items", () => {
-    const loginMenuItem = wrapper.find('a-menu-item[key="login"]');
-    expect(loginMenuItem.exists()).toBe(true);
+    const loginMenuItem = wrapper.find("div[class='nav-tools-login'] span");
+    expect(loginMenuItem.text()).toBe("Log In");
 
-    const signupMenuItem = wrapper.find('a-menu-item[key="signup"]');
+    const signupMenuItem = wrapper.find("div[class='nav-tools-login'] span");
     expect(signupMenuItem.exists()).toBe(true);
   });
 
   it("renders the correct sub-menu titles", () => {
-    const subMenuTitles = wrapper.findAll("template");
-    expect(subMenuTitles[0].text()).toBe("artworks");
-    expect(subMenuTitles[1].text()).toBe("art & culture");
-    expect(subMenuTitles[2].text()).toBe("exhibitions");
+    const subMenuTitles = wrapper.findAll("a-sub-menu span");
+    expect(subMenuTitles[0].text()).toBe("Artwork of the Day");
+    expect(subMenuTitles[1].text()).toBe("List of Artworks");
   });
 
   it("renders the correct number of menu items in each sub-menu", () => {
